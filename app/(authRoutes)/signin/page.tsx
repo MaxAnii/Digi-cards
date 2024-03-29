@@ -1,0 +1,21 @@
+"use client";
+import FormContainer from "@/components/auth/FormContainer";
+import LoginForm from "@/components/auth/LoginForm";
+
+const SignIn = () => {
+	return (
+		<>
+			<div className="flex justify-center items-center h-[80vh]">
+				<FormContainer
+					title="Welcome back"
+					backButtonLabel="Don't have an account?"
+					backButtonhref="/signup"
+				>
+					<LoginForm></LoginForm>
+				</FormContainer>
+			</div>
+		</>
+	);
+};
+
+export default SignIn;
