@@ -1,4 +1,5 @@
 "use client";
+import NavbarContainer from "@/components/NavbarContainer";
 import ProfileContainer from "@/components/ProfileContainer";
 import { useParams } from "next/navigation";
 
@@ -8,6 +9,9 @@ function page() {
 
 	return (
 		<div>
+			<NavbarContainer>
+				<></>
+			</NavbarContainer>
 			<ProfileContainer></ProfileContainer>
 		</div>
 	);
