@@ -1,39 +1,24 @@
 import React from "react";
-import {
-	Card,
-	CardContent,
-	CardDescription,
-	CardFooter,
-	CardHeader,
-	CardTitle,
-} from "@/components/ui/card";
-import UserProfilePhoto from "./UserProfilePhoto";
-import Background from "./Background";
+
+import ProfileEditContainer from "./ProfileEditContainer";
+import UserProfilePhotoContainer from "./UserProfilePhotoContainer";
+import ContactIcon from "./ContactIcon";
 
 const ProfileContainer = () => {
 	return (
 		<>
-			<div className="flex justify-center m-5">
-				<Card className=" sm:max-w-[85vw] md:max-w-[800px] drop-shadow-2xl">
-					<Background></Background>
-					<CardHeader className="mt-[-25px]">
-						<CardTitle className="italic ">Ansar</CardTitle>
-						<CardDescription className="">
-							Small description of user Irure elit dolore labore Lorem duis
-							Lorem labore ut aliqua ea reprehenderit non consectetur laborum.
-							Minim cillum nostrud irure qui ex laboris.
-						</CardDescription>
-					</CardHeader>
-					<CardContent>
-						<CardTitle className="md:mt-[px] ">Get in touch :-</CardTitle>
-						<div className="flex flex-wrap justify-center lg:gap-5 ">
-							<UserProfilePhoto></UserProfilePhoto>
-						</div>
-					</CardContent>
-					<CardFooter>
-						<p>Card Footer</p>
-					</CardFooter>
-				</Card>
+			<div className="lg:flex lg:justify-center lg:flex-wrap md:m-[5%] ">
+				<div className="lg:fixed left-9 lg:mt-[50px] mt-[100px]">
+					<UserProfilePhotoContainer></UserProfilePhotoContainer>
+				</div>
+				<div className="  lg:max-w-[40vw]  md:ml-auto ">
+					<div className="flex flex-wrap justify-center lg:gap-5 gap-3 lg:mt-[50px]">
+						<ContactIcon></ContactIcon>
+					</div>
+				</div>
+			</div>
+			<div className="fixed bottom-5 md:left-12 left:0 drop-shadow-xl">
+				<ProfileEditContainer></ProfileEditContainer>
 			</div>
 		</>
 	);
