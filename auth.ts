@@ -27,8 +27,8 @@ export const {
 		async session({ token, session }) {
 			if (token.sub && session.user) {
 				session.user.id = token.sub;
-				// session.user.phoneNumber = token.phoneNumber;
-				// session.user.image = token.image;
+				session.user.role = token.role;
+				session.user.username = token.username;
 			}
 
 			return session;
@@ -39,11 +39,11 @@ export const {
 				where: { id: token.sub },
 			});
 			if (!user) return token;
-
+			token.username = user.username;
+			token.role = user.role;
 			token.email = user.email;
 			token.image = user.image as string;
 			token.name = user.name;
-			//   token.phoneNumber = user.phoneNumber as string;
 
 			return token;
 		},
