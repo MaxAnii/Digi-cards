@@ -15,22 +15,18 @@ import { Input } from "../ui/input";
 import { Button } from "@/components/ui/button";
 import { signup } from "@/actions/signup";
 import { useState, useTransition } from "react";
+import { useSearchParams } from "next/navigation";
+import Link from "next/link";
 // import FormSubmissionSpinner from "../FormSubmissionSpinner";
 const SignupForm = () => {
-	type returnData =
-		| {
-				error: string;
-				success?: undefined;
-		  }
-		| {
-				success: string;
-				error?: undefined;
-		  };
+	const params = useSearchParams();
+	const username = params.get("username");
 	const [message, setMessage] = useState<String>("");
 	const [isPending, setTransition] = useTransition();
 	const form = useForm<z.infer<typeof signupSchema>>({
 		resolver: zodResolver(signupSchema),
 		defaultValues: {
+			username: username || "random",
 			email: "",
 			password: "",
 			confrimPassword: "",
@@ -44,19 +40,30 @@ const SignupForm = () => {
 		}
 		setTransition(() => {
 			signup(values).then((data: any) => {
-				if (data.error) {
-					setMessage(data.error);
-				} else if (data.success) {
-					setMessage(data.success);
-				} else {
-					setMessage("Verfication email is sent!");
+				if (data) {
+					setMessage(data.message);
 				}
 			});
 		});
 	};
 	return (
 		<Form {...form}>
+			<Button>{"<-- Back"}</Button>
 			<form className="space-y-6" onSubmit={form.handleSubmit(onsubmit)}>
+				<Link href="/username"></Link>
+				<FormField
+					control={form.control}
+					name="username"
+					render={({ field }) => (
+						<FormItem>
+							<FormLabel>User name</FormLabel>
+							<FormControl>
+								<Input disabled type="text" {...field}></Input>
+							</FormControl>
+							<FormMessage></FormMessage>
+						</FormItem>
+					)}
+				/>
 				<FormField
 					control={form.control}
 					name="email"
