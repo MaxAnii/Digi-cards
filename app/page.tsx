@@ -14,7 +14,7 @@ const LandingPage = () => {
 					Sign In
 				</Link>
 				<Link
-					href="/signup"
+					href="/username"
 					className="bg-gray-500 hover:bg-gray-600 text-white font-semibold py-2 px-4 rounded-md text-center w-full max-w-sm"
 				>
 					Sign Up
