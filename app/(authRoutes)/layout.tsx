@@ -1,3 +1,4 @@
+import AuthButtons from "@/components/AuthButtons";
 import NavbarContainer from "@/components/NavbarContainer";
 
 export default function RootLayout({
@@ -8,7 +9,7 @@ export default function RootLayout({
 	return (
 		<div>
 			<NavbarContainer>
-				<></>
+				<AuthButtons></AuthButtons>
 			</NavbarContainer>
 			{children}
 		</div>

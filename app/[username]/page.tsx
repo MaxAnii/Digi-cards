@@ -1,6 +1,7 @@
 "use client";
 import NavbarContainer from "@/components/NavbarContainer";
 import ProfileContainer from "@/components/ProfileContainer";
+import AuthButtons from "@/components/AuthButtons";
 import { useParams } from "next/navigation";
 
 function page() {
@@ -10,7 +11,7 @@ function page() {
 	return (
 		<div>
 			<NavbarContainer>
-				<></>
+				<AuthButtons></AuthButtons>
 			</NavbarContainer>
 			<ProfileContainer></ProfileContainer>
 		</div>
