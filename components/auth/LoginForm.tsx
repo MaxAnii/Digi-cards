@@ -15,7 +15,7 @@ import { loginSchema } from "@/schemas";
 import { Button } from "@/components/ui/button";
 import { login } from "@/actions/login";
 import { useState, useTransition } from "react";
-// import FormSubmissionSpinner from "../FormSubmissionSpinner";
+import FormSubmissionSpinner from "@/components/FormSubmissionSpinner";
 const LoginForm = () => {
 	const [messsage, setMessage] = useState<String | undefined>("");
 
@@ -81,8 +81,7 @@ const LoginForm = () => {
 						Sign In
 					</Button>
 				) : (
-					<></>
-					// <FormSubmissionSpinner></FormSubmissionSpinner>
+					<FormSubmissionSpinner></FormSubmissionSpinner>
 				)}
 			</form>
 		</Form>

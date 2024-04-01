@@ -17,7 +17,7 @@ import { signup } from "@/actions/signup";
 import { useState, useTransition } from "react";
 import { useSearchParams } from "next/navigation";
 import Link from "next/link";
-// import FormSubmissionSpinner from "../FormSubmissionSpinner";
+import FormSubmissionSpinner from "@/components/FormSubmissionSpinner";
 const SignupForm = () => {
 	const params = useSearchParams();
 	const username = params.get("username");
@@ -121,8 +121,7 @@ const SignupForm = () => {
 						Create an account
 					</Button>
 				) : (
-					//   <FormSubmissionSpinner></FormSubmissionSpinner>
-					<></>
+					<FormSubmissionSpinner></FormSubmissionSpinner>
 				)}
 			</form>
 		</Form>
