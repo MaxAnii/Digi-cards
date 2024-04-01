@@ -3,6 +3,7 @@ import NavbarContainer from "@/components/NavbarContainer";
 import ProfileContainer from "@/components/ProfileContainer";
 import AuthButtons from "@/components/AuthButtons";
 import { useParams } from "next/navigation";
+import AdminNavbarLinks from "@/components/AdminNavbarLinks";
 
 function page() {
 	const param = useParams();
@@ -11,6 +12,7 @@ function page() {
 	return (
 		<div>
 			<NavbarContainer>
+				<AdminNavbarLinks></AdminNavbarLinks>
 				<AuthButtons></AuthButtons>
 			</NavbarContainer>
 			<ProfileContainer></ProfileContainer>
