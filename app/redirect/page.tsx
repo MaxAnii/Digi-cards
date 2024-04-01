@@ -11,6 +11,9 @@ const CheckRoute = () => {
 		if (user?.role === "user") {
 			setTimeout(() => route.push(`/${user.username}`), 2000);
 		}
+		if (user?.role === "admin") {
+			setTimeout(() => route.push(`/dashboard`), 2000);
+		}
 		if (!user) route.push("/");
 	}, []);
 	return (
