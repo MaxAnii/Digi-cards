@@ -6,12 +6,13 @@ import { Label } from "../ui/label";
 import { checkUsernameExists } from "@/actions/checkUsername";
 import Link from "next/link";
 import { Button } from "../ui/button";
-// import FormSubmissionSpinner from "../FormSubmissionSpinner";
+import FormSubmissionSpinner from "@/components/FormSubmissionSpinner";
 const UserNameForm = () => {
 	const [messsage, setMessage] = useState<String | undefined>("");
 	const [username, setUsername] = useState<string>("");
 	const [showNextButton, setShowNextButton] = useState<boolean>(false);
 	const [isPending, setTransiton] = useTransition();
+	const [showLoader, setShowLoader] = useState<boolean>(false);
 	const onChange = async () => {
 		if (username.length === 0) return;
 		const usernameRegex = /^[a-zA-Z0-9_]+$/;
@@ -22,8 +23,9 @@ const UserNameForm = () => {
 				"User name should not contain any spaces and special characters"
 			);
 		const usernameExists = await checkUsernameExists(username);
+		setShowLoader(false);
 
-		if (usernameExists) return setMessage("username is already taken");
+		if (usernameExists) setMessage("username is already taken");
 		else setShowNextButton(true);
 	};
 	useEffect(() => {
@@ -31,7 +33,7 @@ const UserNameForm = () => {
 		setShowNextButton(false);
 		const checkUsenname = setTimeout(() => {
 			setTransiton(() => onChange());
-		}, 2000);
+		}, 1500);
 		return () => clearTimeout(checkUsenname);
 	}, [username]);
 	return (
@@ -43,13 +45,16 @@ const UserNameForm = () => {
 					onChange={(e) => setUsername(e.target.value)}
 					className="my-2 pr-12"
 					disabled={isPending}
+					onFocus={() => setShowLoader(true)}
+					onBlur={() => setShowLoader(false)}
 				></Input>
 				<div className="my-[-38px] mx-[-65px]">
-					{isPending && (
+					{showLoader && (
 						<LineWave color="#9CAFAA" ariaLabel="line-wave-loading" />
 					)}
 				</div>
 			</div>
+			<div className=" py-2 px-2 rounded-lg text-sm bg-gray-100 dark:bg-gray-900">{`https:didi-cards/${username}`}</div>
 			<div className="text-red-700 mt-2 text-sm ">{messsage}</div>
 			{showNextButton && (
 				<Link

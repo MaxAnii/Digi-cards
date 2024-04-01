@@ -8,6 +8,7 @@ import {
 } from "@/components/ui/sheet";
 
 import EditProfileButton from "./EditProfileButton";
+import SocialMediaLinks from "./SocialMedialLinkForm";
 
 const ProfileEditContainer = () => {
 	return (
@@ -24,6 +25,7 @@ const ProfileEditContainer = () => {
 							account and remove your data from our servers.
 						</SheetDescription>
 					</SheetHeader>
+					<SocialMediaLinks></SocialMediaLinks>
 				</SheetContent>
 			</Sheet>
 		</div>

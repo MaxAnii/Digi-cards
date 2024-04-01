@@ -15,10 +15,10 @@ const AuthButtons = () => {
 			) : (
 				<>
 					<Link href="/signin">
-						<Button className="p-2  text-sm w-[60px]">Sign in</Button>
+						<Button className="p-2  text-sm w-[60px] mr-4">Sign in</Button>
 					</Link>
 					<Link href="/username">
-						<Button className="p-2  text-sm w-[60px]" variant="secondary">
+						<Button className="p-2  text-sm w-[60px] mr-4" variant="secondary">
 							Sign up
 						</Button>
 					</Link>

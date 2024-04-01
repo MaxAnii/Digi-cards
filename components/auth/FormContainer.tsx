@@ -30,7 +30,7 @@ const FormContainer = ({
 	//   };
 	return (
 		<div className=" ">
-			<Card className="  shadow-md md:w-[400px]">
+			<Card className="  shadow-md md:w-[400px] w-[300px]">
 				<CardHeader className="text-center">{title}</CardHeader>
 				<CardContent>{children}</CardContent>
 				<CardFooter className="gap-x-2">

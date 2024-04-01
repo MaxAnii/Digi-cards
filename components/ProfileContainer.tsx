@@ -1,5 +1,4 @@
-import React from "react";
-
+"use client";
 import ProfileEditContainer from "./ProfileEditContainer";
 import UserProfilePhotoContainer from "./UserProfilePhotoContainer";
 import ContactIcon from "./ContactIcon";
