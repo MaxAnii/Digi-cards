@@ -52,3 +52,12 @@ model verificationToken {
 
   @@unique([email, token])
 }
+
+model resetToken {
+  id       String   @id @default(cuid())
+  email    String
+  token    String   @unique
+  expirers DateTime
+
+  @@unique([email, token])
+}
