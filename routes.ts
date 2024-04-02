@@ -8,7 +8,7 @@ export const authRoutes = [
 	"/emailverification",
 	"/username",
 	"/reset-link",
-	"/reset-password",
+	"/resetpassword",
 ];
 
 export const DEFAULT_LOGIN_REDIRECT = "/redirect";
