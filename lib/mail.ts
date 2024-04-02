@@ -17,3 +17,12 @@ export const sendVerificatonEmail = async (email: string, token: string) => {
 		html: emailTemplate(confrimLink),
 	});
 };
+export const sendResetEmail = async (email: string, token: string) => {
+	const confrimLink = `http://localhost:3000/resetpassword?token=${token}`;
+	await transporter.sendMail({
+		from: process.env.TRANSPORTER_FROM,
+		to: email,
+		subject: "Verify your email.",
+		html: emailTemplate(confrimLink),
+	});
+};
