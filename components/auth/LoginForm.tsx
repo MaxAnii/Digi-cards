@@ -16,6 +16,7 @@ import { Button } from "@/components/ui/button";
 import { login } from "@/actions/login";
 import { useState, useTransition } from "react";
 import FormSubmissionSpinner from "@/components/FormSubmissionSpinner";
+import Link from "next/link";
 const LoginForm = () => {
 	const [messsage, setMessage] = useState<String | undefined>("");
 
@@ -75,6 +76,11 @@ const LoginForm = () => {
 						</FormItem>
 					)}
 				/>
+				<Link href="/reset-link">
+					<Button size="sm" variant="link" className="px-0 mt-2">
+						Forgot password?
+					</Button>
+				</Link>
 				<div className="text-red-700">{messsage}</div>
 				{!isPending ? (
 					<Button type="submit" className="w-full">
