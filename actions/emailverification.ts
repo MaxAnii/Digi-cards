@@ -1,6 +1,6 @@
 "use server";
 import { db } from "@/lib/db";
-import { getVerificationTokenByToken } from "@/verification-token";
+import { getVerificationTokenByToken } from "@/actions/verification-token";
 
 export const newVerification = async (token: string) => {
 	const existingToken = await getVerificationTokenByToken(token);
