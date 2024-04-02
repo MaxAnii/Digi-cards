@@ -21,7 +21,7 @@ const ListUserTable = () => {
 		<div>
 			{userList.data?.length ? (
 				<Table>
-					<TableCaption>A list of your Groups</TableCaption>
+					<TableCaption>A list of Users</TableCaption>
 					<TableHeader>
 						<TableRow>
 							<TableHead className="w-[100px] p-4">Icon</TableHead>
@@ -29,7 +29,7 @@ const ListUserTable = () => {
 						</TableRow>
 					</TableHeader>
 					<TableBody>
-						{userList.data.map((item: any, index: any) => {
+						{userList.data.map((item: any, index: number) => {
 							return (
 								<TableRow key={index}>
 									<TableCell className="p-4 font-medium">
