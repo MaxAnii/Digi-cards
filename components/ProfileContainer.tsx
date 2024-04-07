@@ -1,7 +1,8 @@
 "use client";
-import ProfileEditContainer from "./ProfileEditContainer";
+import ProfileEditContainer from "./Sidebar";
 import UserProfilePhotoContainer from "./UserProfilePhotoContainer";
-import ContactIcon from "./ContactIcon";
+import ContactIcon from "./SocialContactIcon";
+import MainContactLinks from "./MainContactLinks";
 
 const ProfileContainer = () => {
 	return (
@@ -12,11 +13,12 @@ const ProfileContainer = () => {
 				</div>
 				<div className="  lg:max-w-[40vw]  md:ml-auto ">
 					<div className="flex flex-wrap justify-center lg:gap-5 gap-3 lg:mt-[50px]">
+						<MainContactLinks></MainContactLinks>
 						<ContactIcon></ContactIcon>
 					</div>
 				</div>
 			</div>
-			<div className="fixed bottom-5 md:left-12 left:0 drop-shadow-xl">
+			<div className="fixed bottom-5 md:right-12 right-1 drop-shadow-xl">
 				<ProfileEditContainer></ProfileEditContainer>
 			</div>
 		</>

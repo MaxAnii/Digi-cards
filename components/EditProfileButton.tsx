@@ -7,9 +7,9 @@ const EditProfileButton = () => {
 	const user = useCurrentUser();
 	return (
 		<>
-			{user?.username === params.username ? (
-				<Card className="md:h-[80px] md:w-[80px] h-[80px] w-[70px] mt-10  md:mx-5 p-5 mx-3 dark:bg-slate-300 dark:text-black">
-					<FiEdit size="3-xl" />
+			{user?.username !	== params.username ? (
+				<Card className="md:h-[50px] md:w-[50px] h-[50px] w-[50px]   p-3  dark:bg-slate-300 dark:text-black">
+					<FiEdit size="2-xl" />
 				</Card>
 			) : (
 				<></>

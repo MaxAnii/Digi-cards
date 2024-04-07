@@ -17,7 +17,7 @@ export const getUsersList = async () => {
 				image: true,
 			},
 		});
-		console.log(users);
+
 		return users;
 	} catch (error) {}
 };

@@ -13,7 +13,9 @@ const AdminNavbarLinks = () => {
 						<Button variant="ghost">Dashboard</Button>
 					</Link>
 					<Link href={`/${admin?.username}`}>
-						<Button variant="ghost">My profile</Button>
+						<Button variant="ghost" className="mx-1">
+							My profile
+						</Button>
 					</Link>
 				</>
 			)}

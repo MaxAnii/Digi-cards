@@ -1,5 +1,5 @@
-export const emailTemplate = (link: String) => {
-  return `
+export const verificationEmailTemplate = (link: String) => {
+	return `
     <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html dir="ltr" lang="en">
 
@@ -15,7 +15,7 @@ export const emailTemplate = (link: String) => {
         <tr style="width:100%">
           <td>
             <p style="font-size:16px;line-height:26px;margin:16px 0">Hi There,</p>
-            <p style="font-size:16px;line-height:26px;margin:16px 0">Welcome to SENTRY, a platform that helps you to protect your chats and removes toxicity.</p>
+            <p style="font-size:16px;line-height:26px;margin:16px 0">Welcome to Digi-Cards, a platform that creates your to pro tect your chats and removes toxicity.</p>
             <table align="center" width="100%" border="0" cellPadding="0" cellSpacing="0" role="presentation" style="text-align:center">
               <tbody>
                 <tr>
@@ -23,7 +23,7 @@ export const emailTemplate = (link: String) => {
                 </tr>
               </tbody>
             </table>
-            <p style="font-size:16px;line-height:26px;margin:16px 0">Best,<br />The SENTRY team</p>
+            <p style="font-size:16px;line-height:26px;margin:16px 0">Best,<br />The Digi-Cards team</p>
             <hr style="width:100%;border:none;border-top:1px solid #eaeaea;border-color:#cccccc;margin:20px 0" />
           </td>
         </tr>

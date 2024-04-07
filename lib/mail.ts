@@ -1,4 +1,4 @@
-import { emailTemplate } from "./emailTemplate";
+import { verificationEmailTemplate } from "./emailTemplate";
 const nodemailer = require("nodemailer");
 const transporter = nodemailer.createTransport({
 	service: "SendinBlue",
@@ -14,7 +14,7 @@ export const sendVerificatonEmail = async (email: string, token: string) => {
 		from: process.env.TRANSPORTER_FROM,
 		to: email,
 		subject: "Verify your email.",
-		html: emailTemplate(confrimLink),
+		html: verificationEmailTemplate(confrimLink),
 	});
 };
 export const sendResetEmail = async (email: string, token: string) => {
@@ -23,6 +23,6 @@ export const sendResetEmail = async (email: string, token: string) => {
 		from: process.env.TRANSPORTER_FROM,
 		to: email,
 		subject: "Verify your email.",
-		html: emailTemplate(confrimLink),
+		html: verificationEmailTemplate(confrimLink),
 	});
 };

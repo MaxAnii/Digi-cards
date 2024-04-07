@@ -54,7 +54,7 @@ const UserNameForm = () => {
 					)}
 				</div>
 			</div>
-			<div className=" py-2 px-2 rounded-lg text-sm bg-gray-100 dark:bg-gray-900">{`https:didi-cards/${username}`}</div>
+			<div className=" py-2 px-2 rounded-lg text-sm bg-gray-100 dark:bg-gray-900 mx-2">{`https:didi-cards/${username}`}</div>
 			<div className="text-red-700 mt-2 text-sm ">{messsage}</div>
 			{showNextButton && (
 				<Link

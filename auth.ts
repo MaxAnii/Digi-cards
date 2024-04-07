@@ -2,7 +2,7 @@ import NextAuth from "next-auth";
 import authConfig from "@/auth.config";
 import { PrismaAdapter } from "@auth/prisma-adapter";
 import { db } from "@/lib/db";
-
+// console.log("auth", process.env.AUTH_SECRET);
 export const {
 	handlers: { GET, POST },
 	auth,
@@ -51,4 +51,5 @@ export const {
 	adapter: PrismaAdapter(db),
 	session: { strategy: "jwt" },
 	...authConfig,
+	secret: "C0Xjy84+JicuBJZSttRNeB+FIh78VLAjDrHFtnxk0RQ=",
 });

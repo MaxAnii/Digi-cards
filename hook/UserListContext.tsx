@@ -9,10 +9,10 @@ import {
 import { getUsersList } from "@/actions/user";
 
 export type userData = {
-	id: string;
-	username: string;
-	name: string;
-	email: string;
+	id: string | null;
+	username: string | null;
+	name: string | null;
+	email: string | null;
 	image: string | null;
 };
 

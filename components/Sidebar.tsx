@@ -8,7 +8,8 @@ import {
 } from "@/components/ui/sheet";
 
 import EditProfileButton from "./EditProfileButton";
-import SocialMediaLinks from "./SocialMedialLinkForm";
+
+import SocialMedialLinkForm from "./EidtProfilContainer";
 
 const ProfileEditContainer = () => {
 	return (
@@ -17,15 +18,12 @@ const ProfileEditContainer = () => {
 				<SheetTrigger>
 					<EditProfileButton></EditProfileButton>
 				</SheetTrigger>
-				<SheetContent>
+				<SheetContent className="dark:bg-slate-900  px-2 md:p-4  md:min-w-[600px] min-w-[90vw] overflow-auto ">
 					<SheetHeader>
-						<SheetTitle>Are you absolutely sure?</SheetTitle>
-						<SheetDescription>
-							This action cannot be undone. This will permanently delete your
-							account and remove your data from our servers.
-						</SheetDescription>
+						<SheetTitle>Edit your Profile</SheetTitle>
+
+						<SocialMedialLinkForm></SocialMedialLinkForm>
 					</SheetHeader>
-					<SocialMediaLinks></SocialMediaLinks>
 				</SheetContent>
 			</Sheet>
 		</div>

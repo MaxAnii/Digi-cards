@@ -22,12 +22,19 @@ export const signup = async (values: z.infer<typeof signupSchema>) => {
 	});
 	if (existUser) return { message: "Email already in use" };
 
-	await db.user.create({
+	const newUser = await db.user.create({
 		data: {
 			username,
 			email,
 			password: hashedPassword,
 			role: "user",
+		},
+	});
+	await db.basicDetails.create({
+		data: {
+			userId: newUser.id,
+			name: username,
+			email,
 		},
 	});
 	const verificationToken = await generateVerificationToken(email);
