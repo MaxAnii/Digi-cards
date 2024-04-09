@@ -8,7 +8,7 @@ const ProfileContainer = () => {
 	return (
 		<>
 			<div className="lg:flex lg:justify-center lg:flex-wrap md:m-[5%] ">
-				<div className="lg:fixed left-9 lg:mt-[50px] mt-[100px]">
+				<div className="lg:fixed left-9 lg:mt-[50px] mt-[150px]">
 					<UserProfilePhotoContainer></UserProfilePhotoContainer>
 				</div>
 				<div className="  lg:max-w-[40vw]  md:ml-auto ">

@@ -3,7 +3,7 @@ import UserData from "@/components/UserData";
 
 const Page = () => {
 	return (
-		<div className="pl-2 md:pl-9  pt-[100px]">
+		<div className="pl-2 md:pl-9 md:pt-[100px] pt-[150px]">
 			<div className="w-full max-w-[90vw] md:flex ">
 				<div>
 					<div className="pb-2 md:text-3xl text-xl">User List</div>

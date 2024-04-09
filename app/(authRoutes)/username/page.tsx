@@ -5,7 +5,7 @@ import UserNameForm from "@/components/auth/UserNameForm";
 const UserName = () => {
 	return (
 		<div>
-			<div className="mt-[100px] md:px-20 px-5">
+			<div className="mt-[150px] md:px-20 px-5">
 				<h3 className="md:text-2xl text-xl font-bold ">
 					Secure your exclusive link now!
 				</h3>

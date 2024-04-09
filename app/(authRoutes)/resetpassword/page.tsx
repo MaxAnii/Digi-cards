@@ -5,7 +5,7 @@ import ResetPasswordForm from "@/components/auth/ResetPasswordForm";
 const ResetPassword = () => {
 	return (
 		<>
-			<div className="flex justify-center items-center h-[80vh]">
+			<div className="flex justify-center items-center h-screen">
 				<FormContainer
 					title="Reset Password"
 					backButtonLabel="Back to login"

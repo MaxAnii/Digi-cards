@@ -5,7 +5,7 @@ import LoginForm from "@/components/auth/LoginForm";
 const SignIn = () => {
 	return (
 		<>
-			<div className="flex justify-center ">
+			<div className="flex justify-center mt-8">
 				<FormContainer
 					title="Welcome back"
 					backButtonLabel="Don't have an account?"

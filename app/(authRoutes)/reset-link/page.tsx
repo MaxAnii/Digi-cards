@@ -5,7 +5,7 @@ import ResetLinkForm from "@/components/auth/RestLinkForm";
 const ResetLink = () => {
 	return (
 		<>
-			<div className="flex justify-center items-center h-[80vh]">
+			<div className="flex justify-center items-center h-screen">
 				<FormContainer
 					title="Forgot password"
 					backButtonLabel="Back to login"
