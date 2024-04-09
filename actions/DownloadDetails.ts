@@ -13,7 +13,6 @@ export const getUserDetailsToDownload = async (userId: string) => {
 				phoneCountryCode: true,
 				phone: true,
 				name: true,
-				profilePhoto: true,
 				email: true,
 			},
 		});

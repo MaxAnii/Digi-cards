@@ -11,7 +11,6 @@ type DataType =
 			phone: string | null;
 			name: string | null;
 			email: string | null;
-			profilePhoto: Buffer | null;
 			phoneCountryCode: string | null;
 			whatsappCountryCode: string | null;
 			whatsapp: string | null;
@@ -21,7 +20,6 @@ type DataType =
 const DownloadUserDetails = () => {
 	const userInformation = useContext(UserInformationContext);
 	const [userData, setUserData] = useState<DataType>();
-	const [imageUrl, setImageUrl] = useState<any>();
 	const [socialLinks, setSocialLinks] = useState<string>("");
 
 	const getLinks = async () => {
@@ -35,10 +33,6 @@ const DownloadUserDetails = () => {
 		const data = await getUserDetailsToDownload(userInformation.userId);
 		if (!data) return;
 		setUserData(data);
-		if (!data.profilePhoto) return;
-		const base64Data = data.profilePhoto.toString("base64");
-		console.log(base64Data);
-		setImageUrl(base64Data);
 	};
 
 	useEffect(() => {
