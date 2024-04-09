@@ -1,26 +1,39 @@
 import React from "react";
 import Link from "next/link";
+import { Button } from "@/components/ui/button";
+import NavbarContainer from "@/components/NavbarContainer";
+import AuthButtons from "@/components/AuthButtons";
 const LandingPage = () => {
 	return (
-		<div className="min-h-screen  flex flex-col justify-center items-center">
-			<h1 className="text-3xl font-bold mb-8">
-				Welcome to Digital Business Card
-			</h1>
-			<div className="flex flex-col space-y-4">
-				<Link
-					href="/signin"
-					className="bg-blue-500 hover:bg-blue-600 text-white font-semibold py-2 px-4 rounded-md text-center w-full max-w-sm"
-				>
-					Sign In
-				</Link>
-				<Link
-					href="/username"
-					className="bg-gray-500 hover:bg-gray-600 text-white font-semibold py-2 px-4 rounded-md text-center w-full max-w-sm"
-				>
-					Sign Up
-				</Link>
+		<>
+			<NavbarContainer>
+				<AuthButtons></AuthButtons>
+			</NavbarContainer>
+			<div className="flex h-screen w-full items-center justify-center">
+				<div className="text-center">
+					<button className="my-2 rounded-3xl p-5 text-xl dark:bg-black">
+						Welcome to Digi Cards
+					</button>
+					<h1 className="text-3xl font-bold lg:text-5xl">
+						Create & Share Your Digital Profile
+					</h1>
+					<p className="w-full p-4 text-center lg:px-[120px]">
+						Digi-Cards provides a powerful solution for crafting and sharing
+						digital business cards. With our platform, you can easily create
+						professional online business cards and share them with others.
+						Enhance your networking and establish your digital presence with
+						Digi-Cards.
+					</p>
+					<div className="text-3xl ">
+						<Link href="/signin">
+							<Button size="lg" className="text-base text-indigo-950">
+								Get Started
+							</Button>
+						</Link>
+					</div>
+				</div>
 			</div>
-		</div>
+		</>
 	);
 };
 
