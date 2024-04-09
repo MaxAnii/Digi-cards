@@ -15,9 +15,13 @@ export const getUsersList = async () => {
 				username: true,
 				email: true,
 				image: true,
+				BasicDetails: {
+					select: {
+						profilePhoto: true,
+					},
+				},
 			},
 		});
-
 		return users;
 	} catch (error) {}
 };

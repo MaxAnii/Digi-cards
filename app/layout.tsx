@@ -1,3 +1,4 @@
+import { Toaster } from "@/components/ui/toaster";
 import type { Metadata } from "next";
 import "./globals.css";
 import { Roboto } from "next/font/google";
@@ -28,6 +29,7 @@ export default async function RootLayout({
 					roboto.className
 				)}
 			>
+				<Toaster />
 				<SessionProvider session={session}>
 					<ThemeProvider
 						attribute="class"

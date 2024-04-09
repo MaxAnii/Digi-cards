@@ -48,7 +48,9 @@ const SignupForm = () => {
 	};
 	return (
 		<Form {...form}>
-			<Button>{"<-- Back"}</Button>
+			<Link href="/username">
+				<Button>{"<-- Back"}</Button>
+			</Link>
 			<form className="space-y-6" onSubmit={form.handleSubmit(onsubmit)}>
 				<Link href="/username"></Link>
 				<FormField

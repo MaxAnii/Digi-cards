@@ -41,7 +41,7 @@ const UserNameForm = () => {
 			<Label>User name</Label>
 			<div className="flex gap-x-3 ">
 				<Input
-					placeholder="ansar@example.com"
+					placeholder="your name"
 					onChange={(e) => setUsername(e.target.value)}
 					className="my-2 pr-12"
 					disabled={isPending}

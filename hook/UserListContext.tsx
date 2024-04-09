@@ -37,6 +37,7 @@ const UserListProvider = ({ children }: { children: ReactNode }) => {
 
 	const getList = async () => {
 		const userList = await getUsersList();
+		console.log(userList);
 		setData(userList);
 	};
 

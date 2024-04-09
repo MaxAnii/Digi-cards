@@ -3,6 +3,7 @@ import ProfileEditContainer from "./Sidebar";
 import UserProfilePhotoContainer from "./UserProfilePhotoContainer";
 import ContactIcon from "./SocialContactIcon";
 import MainContactLinks from "./MainContactLinks";
+import DownloadUserDetails from "./DownloadUserDetails";
 
 const ProfileContainer = () => {
 	return (
@@ -20,6 +21,9 @@ const ProfileContainer = () => {
 			</div>
 			<div className="fixed bottom-5 md:right-12 right-1 drop-shadow-xl">
 				<ProfileEditContainer></ProfileEditContainer>
+			</div>
+			<div className="ml-12	fixed bottom-7	 md:justify-end sm:justify-center  drop-shadow-xl">
+				<DownloadUserDetails></DownloadUserDetails>
 			</div>
 		</>
 	);

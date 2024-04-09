@@ -5,12 +5,24 @@ import { Button } from "./ui/button";
 import { ChangeEvent, useContext, useState, useTransition } from "react";
 import { updatePhoto } from "@/actions/updateInformation";
 import { UserInformationContext } from "@/hook/userInformationContext";
+import { toast } from "./ui/use-toast";
 function ChangeProfilePhoto() {
 	const userInformation = useContext(UserInformationContext);
 	const [isPending, startTranstion] = useTransition();
 	const [userPhoto, setuserPhoto] = useState<FormData>();
 	const handleFileChange = (event: ChangeEvent<HTMLInputElement>) => {
 		const file = event.target.files?.[0];
+		const maxSize = 2 * 1024 * 1024;
+
+		if (file && file.size > maxSize) {
+			toast({
+				variant: "destructive",
+				title: "Please select an image file smaller than 2MB.",
+				duration: 1000,
+			});
+			event.target.value = "";
+			return;
+		}
 		if (file && file.type.startsWith("image/")) {
 			const formData = new FormData();
 			formData.append("profilePhoto", file);

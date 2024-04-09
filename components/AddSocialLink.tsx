@@ -31,6 +31,7 @@ const AddSocialLink = () => {
 		startTransition(async () => {
 			const data = await addNewSocialLink(values);
 			userInformation.setCallSocialLinks((prev) => !prev);
+			form.setValue("link", "");
 		});
 	};
 	return (

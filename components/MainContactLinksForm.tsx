@@ -64,6 +64,7 @@ export function MainContactLinksForm() {
 				countryCodeWhatsApp
 			);
 		});
+		userInformation.setCallMainLinks((prev) => !prev);
 	}
 
 	return (

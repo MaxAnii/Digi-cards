@@ -21,23 +21,34 @@ export const signupSchema = z.object({
 
 export const nameDescriptionSchema = z.object({
 	id: z.string(),
-	name: z.string(),
-	description: z.string(),
+	name: z.string().min(4),
+	description: z.string().min(5),
 });
 
 export const basicDetailsSchema = z.object({
-	phoneNumber: z.string(),
-	whatsappNumber: z.string(),
+	phoneNumber: z.string().min(5),
+	whatsappNumber: z.string().min(5),
 	email: z.string().email(),
 });
 
 export const updateSocialLinkSchema = z.object({
 	id: z.string(),
-	link: z.string(),
+	link: z
+		.string()
+		.regex(/^https:\/\/\S+$/, {
+			message: "Link must start with 'https://' and not contain spaces",
+		}),
 });
 export const addNewSocialLinkSchema = z.object({
-	link: z.string(),
+	link: z
+		.string()
+		.regex(/^https:\/\/\S+$/, {
+			message: "Link must start with 'https://' and not contain spaces",
+		}),
 });
-export const userPhotoSchema = z.object({
-	// photo : z.defaultErrorMap()
+export const updatePasswordSchema = z.object({
+	password: z.string().min(8),
+});
+export const updateEmailSchema = z.object({
+	email: z.string().min(8),
 });

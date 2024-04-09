@@ -19,9 +19,10 @@ const SocialMediaLinkFormContainer = () => {
 	}, [userInformation.callSocialLinks]);
 	return (
 		<div>
-			{socialMedia?.map((elem: socialLinksType) => {
+			{socialMedia?.map((elem: socialLinksType, index: number) => {
 				return (
 					<SocialMediaLinkForm
+						key={index}
 						id={elem.id}
 						link={elem.link}
 					></SocialMediaLinkForm>

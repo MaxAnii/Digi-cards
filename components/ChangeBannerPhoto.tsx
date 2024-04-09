@@ -1,21 +1,32 @@
+"use client";
 import { Label } from "@/components/ui/label";
 import { Input } from "@/components/ui/input";
 import { Button } from "./ui/button";
 import { ChangeEvent, useContext, useState, useTransition } from "react";
 import { updatePhoto } from "@/actions/updateInformation";
 import { UserInformationContext } from "@/hook/userInformationContext";
+import { toast } from "./ui/use-toast";
 function ChangeBannerPhoto() {
 	const userInformation = useContext(UserInformationContext);
 	const [bannerPhoto, setBannerPhoto] = useState<FormData>();
 	const [isPending, startTranstion] = useTransition();
 	const handleFileChange = (event: ChangeEvent<HTMLInputElement>) => {
 		const file = event.target.files?.[0];
+		const maxSize = 2 * 1024 * 1024;
+
+		if (file && file.size > maxSize) {
+			toast({
+				variant: "destructive",
+				title: "Please select an image file smaller than 2MB.",
+				duration: 1000,
+			});
+			event.target.value = "";
+			return;
+		}
 		if (file && file.type.startsWith("image/")) {
 			const formData = new FormData();
 			formData.append("backgroundPhoto", file);
 			setBannerPhoto(formData);
-		} else {
-			alert("Please select a valid image file.");
 		}
 	};
 	const uploadBannerPhoto = async (event: any) => {

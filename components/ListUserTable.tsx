@@ -30,11 +30,14 @@ const ListUserTable = () => {
 					</TableHeader>
 					<TableBody>
 						{userList.data.map((item: any, index: number) => {
+							const bufferData = Buffer.from(item.BasicDetails[0].profilePhoto);
+							const blob = new Blob([bufferData], { type: "image/jpeg" });
+							const url = URL.createObjectURL(blob);
 							return (
 								<TableRow key={index}>
 									<TableCell className="p-4 font-medium">
 										<Avatar>
-											<AvatarImage src="https://github.com/shadcn.png" />
+											<AvatarImage src={url} />
 											<AvatarFallback>CN</AvatarFallback>
 										</Avatar>
 									</TableCell>

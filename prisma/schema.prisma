@@ -22,7 +22,7 @@ model User {
   image         String?
   password      String?
   role          String
-  accounts      BasicDetails[]
+  BasicDetails  BasicDetails[]
   socialLinks   socialLinks[]
 }
 

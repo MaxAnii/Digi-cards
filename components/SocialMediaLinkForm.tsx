@@ -76,7 +76,7 @@ const SocialMediaLinkForm = (props: { id: string; link: string }) => {
 				/>
 				<div className="flex gap-3 ml-auto">
 					<Button type="submit" className="ml-auto" disabled={isPending}>
-						update
+						Update
 					</Button>
 					<Button
 						variant="destructive"
