@@ -18,7 +18,8 @@ const CountryCodeDropdown: React.FC<Props> = ({
 	const dropdownRef = useRef<HTMLDivElement>(null);
 	const myCountryCodesObject = Object.entries(
 		countryCodes.customList(
-			"countryCode",
+			undefined,
+
 			"[{countryCode}] {countryNameEn}: +{countryCallingCode}"
 		)
 	).map(([code, country]) => ({ code: "+" + code, country }));
