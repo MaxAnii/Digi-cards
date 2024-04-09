@@ -42,6 +42,7 @@ export function NameDescriptionForm() {
 		if (data?.bio) {
 			form.setValue("description", data.bio);
 		}
+		userInformation.setCallNameDescription((prev) => !prev);
 	};
 	useEffect(() => {
 		getNamebio();
