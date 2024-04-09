@@ -1,4 +1,3 @@
-"use client";
 import ProfileEditContainer from "./Sidebar";
 import UserProfilePhotoContainer from "./UserProfilePhotoContainer";
 import ContactIcon from "./SocialContactIcon";
@@ -22,7 +21,7 @@ const ProfileContainer = () => {
 			<div className="fixed bottom-5 md:right-12 right-1 drop-shadow-xl">
 				<ProfileEditContainer></ProfileEditContainer>
 			</div>
-			<div className="ml-12	fixed bottom-7	 md:justify-end sm:justify-center  drop-shadow-xl">
+			<div className="md:ml-12 ml-1	fixed bottom-7	 md:justify-end sm:justify-center  drop-shadow-xl">
 				<DownloadUserDetails></DownloadUserDetails>
 			</div>
 		</>
