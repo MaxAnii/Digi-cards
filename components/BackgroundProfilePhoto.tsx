@@ -3,7 +3,7 @@ import { getPhoto } from "@/actions/userInformation";
 import { UserInformationContext } from "@/hook/userInformationContext";
 import Image from "next/image";
 import { useContext, useEffect, useState, useTransition } from "react";
-import noBackgroundPhoto from "@/public/NoBackgroundPhoto.jpg";
+import noBackgroundPhoto from "@/public/logo1.png";
 import BackgroundSkeletonLoader from "./BackgroundSkeletonLoader";
 const BackgroundProfilePhoto = () => {
 	const userInformation = useContext(UserInformationContext);
@@ -39,7 +39,7 @@ const BackgroundProfilePhoto = () => {
 						) : (
 							<Image
 								src={noBackgroundPhoto}
-								className="lg:h-[240px] md:h-[180px] h-[130px] w-[100%]   rounded-xl"
+								className="lg:h-[240px] md:h-[180px] h-[130px] w-[100%]   rounded-xl p-2	"
 								alt="Background Photo"
 							/>
 						)}
