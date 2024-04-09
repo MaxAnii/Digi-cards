@@ -27,7 +27,7 @@ export const signup = async (values: z.infer<typeof signupSchema>) => {
 			username,
 			email,
 			password: hashedPassword,
-			role: "admin",
+			role: "user",
 		},
 	});
 	await db.basicDetails.create({
