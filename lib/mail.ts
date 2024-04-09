@@ -1,4 +1,5 @@
 import { verificationEmailTemplate } from "./emailTemplate";
+import { passwordResetEmailTemplate } from "./resetPasswordEmailTemplate";
 const nodemailer = require("nodemailer");
 const transporter = nodemailer.createTransport({
 	service: "SendinBlue",
@@ -9,7 +10,7 @@ const transporter = nodemailer.createTransport({
 });
 
 export const sendVerificatonEmail = async (email: string, token: string) => {
-	const confrimLink = `http://localhost:3000/emailverification?token=${token}`;
+	const confrimLink = `https://digicards1.vercel.app/emailverification?token=${token}`;
 	await transporter.sendMail({
 		from: process.env.TRANSPORTER_FROM,
 		to: email,
@@ -18,11 +19,11 @@ export const sendVerificatonEmail = async (email: string, token: string) => {
 	});
 };
 export const sendResetEmail = async (email: string, token: string) => {
-	const confrimLink = `http://localhost:3000/resetpassword?token=${token}`;
+	const confrimLink = `https://digicards1.vercel.app/resetpassword?token=${token}`;
 	await transporter.sendMail({
 		from: process.env.TRANSPORTER_FROM,
 		to: email,
 		subject: "Verify your email.",
-		html: verificationEmailTemplate(confrimLink),
+		html: passwordResetEmailTemplate(confrimLink),
 	});
 };
