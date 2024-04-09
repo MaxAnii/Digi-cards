@@ -2,12 +2,11 @@ import React from "react";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import NavbarContainer from "@/components/NavbarContainer";
-import AuthButtons from "@/components/AuthButtons";
 const LandingPage = () => {
 	return (
 		<>
 			<NavbarContainer>
-				<AuthButtons></AuthButtons>
+				<></>
 			</NavbarContainer>
 			<div className="flex h-screen w-full items-center justify-center">
 				<div className="text-center">
