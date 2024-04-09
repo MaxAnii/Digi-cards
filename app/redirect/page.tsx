@@ -9,10 +9,10 @@ const CheckRoute = () => {
 	const user = useCurrentUser();
 	useEffect(() => {
 		if (user?.role === "user") {
-			setTimeout(() => route.push(`/${user.username}`), 2000);
+			route.push(`/${user.username}`);
 		}
 		if (user?.role === "admin") {
-			setTimeout(() => route.push(`/dashboard`), 2000);
+			route.push(`/dashboard`);
 		}
 		if (!user) route.push("/");
 	}, []);
