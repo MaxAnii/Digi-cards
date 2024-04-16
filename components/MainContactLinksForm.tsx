@@ -20,6 +20,7 @@ import { useContext, useEffect, useState, useTransition } from "react";
 import { updateBasicDetails } from "@/actions/updateInformation";
 import { UserInformationContext } from "@/hook/userInformationContext";
 import { getMainLinks } from "@/actions/userInformation";
+import { toast } from "./ui/use-toast";
 export function MainContactLinksForm() {
 	const userInformation = useContext(UserInformationContext);
 	const [isPending, startTransition] = useTransition();
@@ -35,21 +36,21 @@ export function MainContactLinksForm() {
 		},
 	});
 	const getLinks = async () => {
-		const data = await getMainLinks(userInformation.userId);
-		if (data?.whatsappCountryCode) {
-			setCountryCodeWhatsApp(data.whatsappCountryCode);
+		// const data = await getMainLinks(userInformation.userId);
+		if (userInformation?.whatsappCountryCode) {
+			setCountryCodeWhatsApp(userInformation.whatsappCountryCode);
 		}
-		if (data?.phoneCountryCode) {
-			setCountryCodePhoneNumber(data.phoneCountryCode);
+		if (userInformation.phoneCountryCode) {
+			setCountryCodePhoneNumber(userInformation.phoneCountryCode);
 		}
-		if (data?.email) {
-			form.setValue("email", data.email);
+		if (userInformation.email) {
+			form.setValue("email", userInformation.email);
 		}
-		if (data?.phone) {
-			form.setValue("phoneNumber", data.phone);
+		if (userInformation.phoneNumber) {
+			form.setValue("phoneNumber", userInformation.phoneNumber);
 		}
-		if (data?.whatsapp) {
-			form.setValue("whatsappNumber", data.whatsapp);
+		if (userInformation.whatsappNumber) {
+			form.setValue("whatsappNumber", userInformation.whatsappNumber);
 		}
 	};
 	useEffect(() => {
@@ -58,13 +59,29 @@ export function MainContactLinksForm() {
 
 	async function onSubmit(data: z.infer<typeof basicDetailsSchema>) {
 		startTransition(async () => {
-			const respomse = await updateBasicDetails(
+			const response = await updateBasicDetails(
 				data,
 				countryCodePhoneNumber,
 				countryCodeWhatsApp
 			);
+			if (response?.message === "Profile updated") {
+				userInformation.setEmail(data.email);
+				userInformation.setPhoneCountryCode(countryCodePhoneNumber);
+				userInformation.setWhatsappCountryCode(countryCodeWhatsApp);
+				userInformation.setPhoneNumber(data.phoneNumber);
+				userInformation.setWhatsappNumber(data.whatsappNumber);
+				toast({
+					title: response?.message,
+					duration: 3000,
+				});
+			} else {
+				toast({
+					title: response?.message,
+					duration: 3000,
+					variant: "destructive",
+				});
+			}
 		});
-		userInformation.setCallMainLinks((prev) => !prev);
 	}
 
 	return (

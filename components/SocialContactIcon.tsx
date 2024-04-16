@@ -18,7 +18,7 @@ const ContactIcon = () => {
 	};
 	useEffect(() => {
 		getLinks();
-	}, []);
+	}, [userInformation.callSocialLinks]);
 
 	return (
 		<>

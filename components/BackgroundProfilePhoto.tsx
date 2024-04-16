@@ -8,7 +8,6 @@ import BackgroundSkeletonLoader from "./BackgroundSkeletonLoader";
 const BackgroundProfilePhoto = () => {
 	const userInformation = useContext(UserInformationContext);
 	const [image, setImage] = useState("userImage");
-	const [isPending, startTransiton] = useTransition();
 	const getBackgroundPhoto = async () => {
 		if (userInformation.backgroundPhoto) {
 			const bufferData = Buffer.from(userInformation.backgroundPhoto);
@@ -19,7 +18,7 @@ const BackgroundProfilePhoto = () => {
 	};
 	useEffect(() => {
 		getBackgroundPhoto();
-	}, []);
+	}, [userInformation.backgroundPhoto]);
 	return (
 		<div className="lg:w-[45vw]">
 			<div className="  border-[#f7f7f7] border-2 shadow-lg rounded-xl">

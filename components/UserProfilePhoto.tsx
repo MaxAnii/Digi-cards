@@ -18,7 +18,7 @@ const UserProfilePhoto = () => {
 	};
 	useEffect(() => {
 		getUserPhoto();
-	}, []);
+	}, [userInformation.profilePhoto]);
 	return (
 		<div className="relative md:top-[-50px] top-[-20px]  z-0 ">
 			{image ? (

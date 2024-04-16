@@ -36,8 +36,20 @@ function ChangeProfilePhoto() {
 
 		if (userPhoto) {
 			startTranstion(async () => {
-				await updatePhoto(userPhoto, "profilePhoto");
-				userInformation.setCallProfilePhoto((prev) => !prev);
+				const response = await updatePhoto(userPhoto, "profilePhoto");
+				if (response?.imageBuffer) {
+					userInformation.setProfilePhoto(response.imageBuffer);
+					toast({
+						title: response.message,
+						duration: 3000,
+					});
+				} else {
+					toast({
+						title: response?.message,
+						duration: 3000,
+						variant: "destructive",
+					});
+				}
 			});
 		}
 	};

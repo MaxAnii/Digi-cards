@@ -29,13 +29,7 @@ type UserInformationContextType = {
 	phoneCountryCode: string | null;
 	setEmail: React.Dispatch<React.SetStateAction<string | null>>;
 	email: string | null;
-	setSocialLinks: React.Dispatch<
-		React.SetStateAction<Array<{
-			id: string;
-			userId: string;
-			link: string;
-		}> | null>
-	>;
+	setCallSocialLinks: React.Dispatch<React.SetStateAction<boolean>>;
 	socialLinks: Array<{
 		id: string;
 		userId: string;
@@ -46,6 +40,7 @@ type UserInformationContextType = {
 	backgroundPhoto: Buffer | null;
 	setBackgroundPhoto: React.Dispatch<React.SetStateAction<Buffer | null>>;
 	isPending: boolean;
+	callSocialLinks: boolean;
 };
 
 export const UserInformationContext = createContext<UserInformationContextType>(
@@ -66,13 +61,14 @@ export const UserInformationContext = createContext<UserInformationContextType>(
 		phoneCountryCode: "",
 		setEmail: () => {},
 		email: "",
-		setSocialLinks: () => {},
+		setCallSocialLinks: () => {},
 		socialLinks: null,
 		profilePhoto: null,
 		setProfilePhoto: () => {},
 		backgroundPhoto: null,
 		setBackgroundPhoto: () => {},
 		isPending: false,
+		callSocialLinks: false,
 	}
 );
 
@@ -95,15 +91,7 @@ const UserInformationProvider = ({ children }: { children: ReactNode }) => {
 		link: string;
 	}> | null>(null);
 	const [isPending, startTransition] = useTransition();
-
-	const [callNameDescription, setCallNameDescription] =
-		useState<boolean>(false);
-	const [callBackgroundPhoto, setCallBackgroundPhoto] =
-		useState<boolean>(false);
-	const [callProfilePhoto, setCallProfilePhoto] = useState<boolean>(false);
-	const [callMainLinks, setCallMainLinks] = useState<boolean>(false);
 	const [callSocialLinks, setCallSocialLinks] = useState<boolean>(false);
-	const [data, setData] = useState<any>();
 	useEffect(() => {
 		startTransition(async () => {
 			if (userId) {
@@ -118,11 +106,17 @@ const UserInformationProvider = ({ children }: { children: ReactNode }) => {
 				setWhatsappCountryCode(data?.BasicDetails[0].whatsappCountryCode);
 				setWhatsappNumber(data?.BasicDetails[0].whatsapp);
 				setEmail(data?.BasicDetails[0].email);
-				setSocialLinks(data?.socialLinks);
-				setData(data);
 			}
 		});
 	}, [userId]);
+	const getLinks = async () => {
+		if (!userId) return;
+		const data = await getSocialLinks(userId);
+		if (data) setSocialLinks(data);
+	};
+	useEffect(() => {
+		getLinks();
+	}, [userId, callSocialLinks]);
 	return (
 		<UserInformationContext.Provider
 			value={{
@@ -146,9 +140,10 @@ const UserInformationProvider = ({ children }: { children: ReactNode }) => {
 				setProfilePhoto,
 				setBackgroundPhoto,
 				backgroundPhoto,
-				setSocialLinks,
+				setCallSocialLinks,
 				socialLinks,
 				isPending,
+				callSocialLinks,
 			}}
 		>
 			{children}

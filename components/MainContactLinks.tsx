@@ -28,7 +28,13 @@ const MainContactLinks = () => {
 	};
 	useEffect(() => {
 		getLinks();
-	}, []);
+	}, [
+		userInformation.email,
+		userInformation.phoneNumber,
+		userInformation.whatsappNumber,
+		userInformation.phoneCountryCode,
+		userInformation.whatsappCountryCode,
+	]);
 	return (
 		<>
 			{mainLinks?.phone && (

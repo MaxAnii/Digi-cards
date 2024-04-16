@@ -23,23 +23,37 @@ const DownloadUserDetails = () => {
 	const [socialLinks, setSocialLinks] = useState<string>("");
 
 	const getLinks = async () => {
-		const data = await getSocialLinks(userInformation.userId);
+		const data = userInformation.socialLinks;
 		if (!data) return;
 		const socialMediaFields = data.map((elem) => `URL:${elem.link}`).join("\n");
 		setSocialLinks(socialMediaFields);
 	};
 
 	const getDetails = async () => {
-		const data = await getUserDetailsToDownload(userInformation.userId);
-		if (!data) return;
-		setUserData(data);
+		setUserData({
+			phone: userInformation.phoneNumber,
+			email: userInformation.email,
+			name: userInformation.userName,
+			phoneCountryCode: userInformation.phoneCountryCode,
+			whatsapp: userInformation.whatsappNumber,
+			whatsappCountryCode: userInformation.whatsappCountryCode,
+		});
 	};
 
 	useEffect(() => {
 		getDetails();
-		getLinks();
-	}, [userInformation.userId]);
+	}, [
+		userInformation.phoneNumber,
+		userInformation.email,
+		userInformation.userName,
+		userInformation.phoneCountryCode,
+		userInformation.whatsappNumber,
+		userInformation.whatsappCountryCode,
+	]);
 
+	useEffect(() => {
+		getLinks();
+	}, [userInformation.socialLinks]);
 	if (!userData) return null;
 
 	const phoneWithCountryCode = `${userData.phoneCountryCode?.split("+")[1]}${

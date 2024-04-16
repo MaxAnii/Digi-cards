@@ -47,7 +47,6 @@ export const updatePhoto = async (
 
 		const imageUploaded = await db.basicDetails.update({
 			where: {
-				id: "clumh6yn30002h0hu3gabcvva",
 				userId: session?.user.id,
 			},
 			data: {
@@ -57,7 +56,10 @@ export const updatePhoto = async (
 		if (imageUploaded)
 			return {
 				message: "profile updated",
-				imageBuffer: imageUploaded.backgroundPhoto,
+				imageBuffer:
+					image === "backgroundPhoto"
+						? imageUploaded.backgroundPhoto
+						: imageUploaded.profilePhoto,
 			};
 		else return { message: "Something went wrong!" };
 	} catch (error: any) {
