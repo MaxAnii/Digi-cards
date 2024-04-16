@@ -12,6 +12,7 @@ const UserProfilePhoto = () => {
 	const getUserPhoto = async () => {
 		const data = await getPhoto(userInformation.userId, "profilePhoto");
 		if (!data?.profilePhoto) return;
+
 		const bufferData = Buffer.from(data?.profilePhoto);
 		const blob = new Blob([bufferData], { type: "image/jpeg" });
 		const url = URL.createObjectURL(blob);
@@ -24,25 +25,25 @@ const UserProfilePhoto = () => {
 	}, [userInformation.callProfilePhoto]);
 	return (
 		<div className="relative md:top-[-50px] top-[-20px]  z-0 ">
-			{/* {!isPending ? ( */}
-			<>
-				{image ? (
-					<img
-						className=" md:w-[200px] w-[140px] md:h-[200px] h-[140px] rounded-full  border-[#f7f7f7] border-2 "
-						alt="user profile"
-						src={image}
-					/>
-				) : (
-					<Image
-						src={noUserPhoto}
-						className=" md:w-[200px] w-[140px] md:h-[200px] h-[140px]  rounded-full  border-[#f7f7f7] border-2"
-						alt="no profile photo"
-					/>
-				)}
-			</>
-			{/* ) : (
+			{!isPending ? (
+				<>
+					{image ? (
+						<img
+							className=" md:w-[200px] w-[140px] md:h-[200px] h-[140px] rounded-full  border-[#f7f7f7] border-2 object-fill"
+							alt="user profile"
+							src={image}
+						/>
+					) : (
+						<Image
+							src={noUserPhoto}
+							className=" md:w-[200px] w-[140px] md:h-[200px] h-[140px]  rounded-full  border-[#f7f7f7] border-2"
+							alt="no profile photo"
+						/>
+					)}
+				</>
+			) : (
 				<ProfilePhotoSkeleton></ProfilePhotoSkeleton>
-			)} */}
+			)}
 		</div>
 	);
 };

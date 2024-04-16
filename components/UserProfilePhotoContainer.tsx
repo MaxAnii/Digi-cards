@@ -28,14 +28,14 @@ const UserProfilePhotoContainer = () => {
 		<div className=" lg:max-w-[500px] m-1 ">
 			<BackgroundProfilePhoto></BackgroundProfilePhoto>
 			<UserProfilePhoto></UserProfilePhoto>
-			{/* {!isPending ? ( */}
-			<CardHeader className="mt-[-40px]">
-				<CardTitle className=" text-3xl">{data?.name}</CardTitle>
-				<CardDescription className="mb-1">{data?.bio}</CardDescription>
-			</CardHeader>
-			{/* ) : ( */}
-			{/* // 	<NameDescriptionSkeletonLoader></NameDescriptionSkeletonLoader> */}
-			{/* // )} */}
+			{!isPending ? (
+				<CardHeader className="mt-[-40px]">
+					<CardTitle className=" text-3xl">{data?.name}</CardTitle>
+					<CardDescription className="mb-1">{data?.bio}</CardDescription>
+				</CardHeader>
+			) : (
+				<NameDescriptionSkeletonLoader></NameDescriptionSkeletonLoader>
+			)}
 		</div>
 	);
 };

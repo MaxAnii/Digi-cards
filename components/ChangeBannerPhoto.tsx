@@ -18,7 +18,7 @@ function ChangeBannerPhoto() {
 			toast({
 				variant: "destructive",
 				title: "Please select an image file smaller than 2MB.",
-				duration: 1000,
+				duration: 3000,
 			});
 			event.target.value = "";
 			return;

@@ -27,27 +27,27 @@ const BackgroundProfilePhoto = () => {
 	}, [userInformation.callBackgroundPhoto]);
 	return (
 		<div className="lg:w-[45vw]">
-			{/* {!isPending ? ( */}
-			<>
-				<div className="  border-[#f7f7f7] border-2 shadow-lg rounded-xl">
-					{image ? (
-						<img
-							src={image}
-							alt="backgroun Image"
-							className="lg:h-[240px] md:h-[180px] h-[130px] w-[100%]   rounded-xl"
-						/>
-					) : (
-						<Image
-							src={noBackgroundPhoto}
-							className="lg:h-[240px] md:h-[180px] h-[130px] w-[100%]   rounded-xl p-2	"
-							alt="Background Photo"
-						/>
-					)}
-				</div>
-			</>
-			{/* ) : (
+			{!isPending ? (
+				<>
+					<div className="  border-[#f7f7f7] border-2 shadow-lg rounded-xl">
+						{image ? (
+							<img
+								src={image}
+								alt="backgroun Image"
+								className="lg:h-[240px] md:h-[180px] h-[130px] w-[100%]   rounded-xl"
+							/>
+						) : (
+							<Image
+								src={noBackgroundPhoto}
+								className="lg:h-[240px] md:h-[180px] h-[130px] w-[100%]   rounded-xl p-2	"
+								alt="Background Photo"
+							/>
+						)}
+					</div>
+				</>
+			) : (
 				<BackgroundSkeletonLoader></BackgroundSkeletonLoader>
-			)} */}
+			)}
 		</div>
 	);
 };
