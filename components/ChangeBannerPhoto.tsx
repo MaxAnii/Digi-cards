@@ -34,8 +34,20 @@ function ChangeBannerPhoto() {
 
 		if (bannerPhoto) {
 			startTranstion(async () => {
-				await updatePhoto(bannerPhoto, "backgroundPhoto");
-				userInformation.setCallBackgroundPhoto((prev) => !prev);
+				const response = await updatePhoto(bannerPhoto, "backgroundPhoto");
+				if (response?.imageBuffer) {
+					userInformation.setBackgroundPhoto(response.imageBuffer);
+					toast({
+						title: response.message,
+						duration: 3000,
+					});
+				} else {
+					toast({
+						title: response?.message,
+						duration: 3000,
+						variant: "destructive",
+					});
+				}
 			});
 		}
 	};

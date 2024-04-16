@@ -21,6 +21,7 @@ import { useContext, useTransition } from "react";
 import { updateNameDescription } from "@/actions/updateInformation";
 import { getNameDescription } from "@/actions/userInformation";
 import { UserInformationContext } from "@/hook/userInformationContext";
+import { toast } from "./ui/use-toast";
 export function NameDescriptionForm() {
 	const userInformation = useContext(UserInformationContext);
 	const [isPending, startTransition] = useTransition();
@@ -28,21 +29,21 @@ export function NameDescriptionForm() {
 	const form = useForm<z.infer<typeof nameDescriptionSchema>>({
 		resolver: zodResolver(nameDescriptionSchema),
 		defaultValues: {
-			id: userInformation.userId,
+			id: userInformation.userId || "",
 			name: "",
 			description: "",
 		},
 	});
 	const getNamebio = async () => {
-		const data = await getNameDescription(userInformation.userId);
-		console.log(data);
-		if (data?.name) {
-			form.setValue("name", data.name);
+		if (!userInformation.userId) return;
+		// const data = await getNameDescription(userInformation.userId);
+
+		if (userInformation.userName) {
+			form.setValue("name", userInformation.userName);
 		}
-		if (data?.bio) {
-			form.setValue("description", data.bio);
+		if (userInformation.userbio) {
+			form.setValue("description", userInformation.userbio);
 		}
-		userInformation.setCallNameDescription((prev) => !prev);
 	};
 	useEffect(() => {
 		getNamebio();
@@ -50,7 +51,21 @@ export function NameDescriptionForm() {
 	async function onSubmit(values: z.infer<typeof nameDescriptionSchema>) {
 		startTransition(async () => {
 			const data = await updateNameDescription(values);
-			userInformation.setCallNameDescription((prev) => !prev);
+			if (data?.message === "profile updated") {
+				userInformation.setUserBio(values.description);
+				userInformation.setUserName(values.name);
+				toast({
+					title: data.message,
+					duration: 3000,
+				});
+				return;
+			} else {
+				toast({
+					title: "Something went wrong!",
+					duration: 3000,
+					variant: "destructive",
+				});
+			}
 		});
 	}
 

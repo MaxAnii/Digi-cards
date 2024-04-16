@@ -10,32 +10,32 @@ const UserProfilePhotoContainer = () => {
 	const [isPending, startTranstion] = useTransition();
 
 	const userInformation = useContext(UserInformationContext);
-	const [data, setData] = useState<{
-		name: string | null;
-		bio: string | null;
-	}>();
-	const getNamebio = async () => {
-		const data = await getNameDescription(userInformation.userId);
+	// const [data, setData] = useState<{
+	// 	name: string | null;
+	// 	bio: string | null;
+	// }>();
+	// const getNamebio = async () => {
+	// 	const data = await getNameDescription(userInformation.userId);
 
-		if (data) setData(data);
-	};
-	useEffect(() => {
-		startTranstion(() => {
-			getNamebio();
-		});
-	}, [userInformation.callNameDescription]);
+	// 	if (data) setData(data);
+	// };
+	// useEffect(() => {
+	// 	startTranstion(() => {
+	// 		getNamebio();
+	// 	});
+	// }, [userInformation.callNameDescription]);
+
 	return (
 		<div className=" lg:max-w-[500px] m-1 ">
 			<BackgroundProfilePhoto></BackgroundProfilePhoto>
 			<UserProfilePhoto></UserProfilePhoto>
-			{!isPending ? (
-				<CardHeader className="mt-[-40px]">
-					<CardTitle className=" text-3xl">{data?.name}</CardTitle>
-					<CardDescription className="mb-1">{data?.bio}</CardDescription>
-				</CardHeader>
-			) : (
-				<NameDescriptionSkeletonLoader></NameDescriptionSkeletonLoader>
-			)}
+
+			<CardHeader className="mt-[-40px]">
+				<CardTitle className=" text-3xl">{userInformation.userName}</CardTitle>
+				<CardDescription className="mb-1">
+					{userInformation.userbio}
+				</CardDescription>
+			</CardHeader>
 		</div>
 	);
 };

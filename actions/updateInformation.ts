@@ -54,7 +54,12 @@ export const updatePhoto = async (
 				[image]: buffer,
 			},
 		});
-		return { message: "profile updated" };
+		if (imageUploaded)
+			return {
+				message: "profile updated",
+				imageBuffer: imageUploaded.backgroundPhoto,
+			};
+		else return { message: "Something went wrong!" };
 	} catch (error: any) {
 		console.log(error.message);
 	}

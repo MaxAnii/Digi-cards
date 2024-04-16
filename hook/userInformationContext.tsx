@@ -1,40 +1,101 @@
 "use client";
-import { createContext, useState, ReactNode } from "react";
+import { getAllInformation, getSocialLinks } from "@/actions/userInformation";
+import {
+	createContext,
+	useState,
+	ReactNode,
+	useEffect,
+	useTransition,
+} from "react";
 
 type UserInformationContextType = {
-	userId: string;
-	setUserId: React.Dispatch<React.SetStateAction<string>>;
-	callNameDescription: Boolean;
-	setCallNameDescription: React.Dispatch<React.SetStateAction<boolean>>;
-	callBackgroundPhoto: Boolean;
-	setCallBackgroundPhoto: React.Dispatch<React.SetStateAction<boolean>>;
-	callProfilePhoto: Boolean;
-	setCallProfilePhoto: React.Dispatch<React.SetStateAction<boolean>>;
-	callMainLinks: Boolean;
-	setCallMainLinks: React.Dispatch<React.SetStateAction<boolean>>;
-	callSocialLinks: Boolean;
-	setCallSocialLinks: React.Dispatch<React.SetStateAction<boolean>>;
+	userId: string | null;
+	setUserId: React.Dispatch<React.SetStateAction<string | null>>;
+	setUserName: React.Dispatch<React.SetStateAction<string | null>>;
+	userName: string | null;
+	setUserBio: React.Dispatch<React.SetStateAction<string | null>>;
+	userbio: string | null;
+	setWhatsappNumber: React.Dispatch<React.SetStateAction<string | null>>;
+
+	whatsappNumber: string | null;
+	setWhatsappCountryCode: React.Dispatch<React.SetStateAction<string | null>>;
+
+	whatsappCountryCode: string | null;
+	setPhoneNumber: React.Dispatch<React.SetStateAction<string | null>>;
+
+	phoneNumber: string | null;
+	setPhoneCountryCode: React.Dispatch<React.SetStateAction<string | null>>;
+
+	phoneCountryCode: string | null;
+	setEmail: React.Dispatch<React.SetStateAction<string | null>>;
+	email: string | null;
+	setSocialLinks: React.Dispatch<
+		React.SetStateAction<Array<{
+			id: string;
+			userId: string;
+			link: string;
+		}> | null>
+	>;
+	socialLinks: Array<{
+		id: string;
+		userId: string;
+		link: string;
+	}> | null;
+	profilePhoto: Buffer | null;
+	setProfilePhoto: React.Dispatch<React.SetStateAction<Buffer | null>>;
+	backgroundPhoto: Buffer | null;
+	setBackgroundPhoto: React.Dispatch<React.SetStateAction<Buffer | null>>;
+	isPending: boolean;
 };
 
 export const UserInformationContext = createContext<UserInformationContextType>(
 	{
 		userId: "",
 		setUserId: () => {},
-		callNameDescription: false,
-		setCallNameDescription: () => {},
-		callBackgroundPhoto: false,
-		setCallBackgroundPhoto: () => {},
-		callProfilePhoto: false,
-		setCallProfilePhoto: () => {},
-		callMainLinks: false,
-		setCallMainLinks: () => {},
-		callSocialLinks: false,
-		setCallSocialLinks: () => {},
+		setUserName: () => {},
+		userName: "",
+		setUserBio: () => {},
+		userbio: "",
+		setWhatsappNumber: () => {},
+		whatsappNumber: "",
+		setWhatsappCountryCode: () => {},
+		whatsappCountryCode: "",
+		setPhoneNumber: () => {},
+		phoneNumber: "",
+		setPhoneCountryCode: () => {},
+		phoneCountryCode: "",
+		setEmail: () => {},
+		email: "",
+		setSocialLinks: () => {},
+		socialLinks: null,
+		profilePhoto: null,
+		setProfilePhoto: () => {},
+		backgroundPhoto: null,
+		setBackgroundPhoto: () => {},
+		isPending: false,
 	}
 );
 
 const UserInformationProvider = ({ children }: { children: ReactNode }) => {
-	const [userId, setUserId] = useState<string>("");
+	const [userId, setUserId] = useState<string | null>("");
+	const [profilePhoto, setProfilePhoto] = useState<Buffer | null>(null);
+	const [backgroundPhoto, setBackgroundPhoto] = useState<Buffer | null>(null);
+	const [userName, setUserName] = useState<string | null>("");
+	const [userbio, setUserBio] = useState<string | null>("");
+	const [phoneCountryCode, setPhoneCountryCode] = useState<string | null>("");
+	const [phoneNumber, setPhoneNumber] = useState<string | null>("");
+	const [whatsappCountryCode, setWhatsappCountryCode] = useState<string | null>(
+		""
+	);
+	const [whatsappNumber, setWhatsappNumber] = useState<string | null>("");
+	const [email, setEmail] = useState<string | null>("");
+	const [socialLinks, setSocialLinks] = useState<Array<{
+		id: string;
+		userId: string;
+		link: string;
+	}> | null>(null);
+	const [isPending, startTransition] = useTransition();
+
 	const [callNameDescription, setCallNameDescription] =
 		useState<boolean>(false);
 	const [callBackgroundPhoto, setCallBackgroundPhoto] =
@@ -42,22 +103,52 @@ const UserInformationProvider = ({ children }: { children: ReactNode }) => {
 	const [callProfilePhoto, setCallProfilePhoto] = useState<boolean>(false);
 	const [callMainLinks, setCallMainLinks] = useState<boolean>(false);
 	const [callSocialLinks, setCallSocialLinks] = useState<boolean>(false);
-
+	const [data, setData] = useState<any>();
+	useEffect(() => {
+		startTransition(async () => {
+			if (userId) {
+				const data = await getAllInformation(userId);
+				if (!data) return;
+				setUserName(data?.BasicDetails[0].name);
+				setUserBio(data?.BasicDetails[0].bio);
+				setProfilePhoto(data?.BasicDetails[0].profilePhoto);
+				setBackgroundPhoto(data?.BasicDetails[0].backgroundPhoto);
+				setPhoneCountryCode(data?.BasicDetails[0].phoneCountryCode);
+				setPhoneNumber(data?.BasicDetails[0].phone);
+				setWhatsappCountryCode(data?.BasicDetails[0].whatsappCountryCode);
+				setWhatsappNumber(data?.BasicDetails[0].whatsapp);
+				setEmail(data?.BasicDetails[0].email);
+				setSocialLinks(data?.socialLinks);
+				setData(data);
+			}
+		});
+	}, [userId]);
 	return (
 		<UserInformationContext.Provider
 			value={{
 				userId,
 				setUserId,
-				callNameDescription,
-				setCallNameDescription,
-				callBackgroundPhoto,
-				setCallBackgroundPhoto,
-				callProfilePhoto,
-				setCallProfilePhoto,
-				callMainLinks,
-				setCallMainLinks,
-				callSocialLinks,
-				setCallSocialLinks,
+				userName,
+				setUserName,
+				setUserBio,
+				userbio,
+				setEmail,
+				email,
+				setPhoneCountryCode,
+				phoneCountryCode,
+				phoneNumber,
+				setPhoneNumber,
+				whatsappNumber,
+				setWhatsappNumber,
+				whatsappCountryCode,
+				setWhatsappCountryCode,
+				profilePhoto,
+				setProfilePhoto,
+				setBackgroundPhoto,
+				backgroundPhoto,
+				setSocialLinks,
+				socialLinks,
+				isPending,
 			}}
 		>
 			{children}

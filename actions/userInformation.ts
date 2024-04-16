@@ -79,3 +79,18 @@ export const getSocialLinks = async (userId: string) => {
 		return data;
 	} catch (error) {}
 };
+
+export const getAllInformation = async (id: string) => {
+	try {
+		const data = await db.user.findFirst({
+			where: { id },
+			select: {
+				BasicDetails: true,
+				socialLinks: true,
+			},
+		});
+		return data;
+	} catch (error: any) {
+		console.log(error.message);
+	}
+};
