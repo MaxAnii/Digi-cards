@@ -24,25 +24,25 @@ const UserProfilePhoto = () => {
 	}, [userInformation.callProfilePhoto]);
 	return (
 		<div className="relative md:top-[-50px] top-[-20px]  z-0 ">
-			{!isPending ? (
-				<>
-					{image ? (
-						<img
-							className=" md:w-[200px] w-[140px] md:h-[200px] h-[140px] rounded-full  border-[#f7f7f7] border-2 "
-							alt="user profile"
-							src={image}
-						/>
-					) : (
-						<Image
-							src={noUserPhoto}
-							className=" md:w-[200px] w-[140px] md:h-[200px] h-[140px]  rounded-full  border-[#f7f7f7] border-2"
-							alt="no profile photo"
-						/>
-					)}
-				</>
-			) : (
+			{/* {!isPending ? ( */}
+			<>
+				{image ? (
+					<img
+						className=" md:w-[200px] w-[140px] md:h-[200px] h-[140px] rounded-full  border-[#f7f7f7] border-2 "
+						alt="user profile"
+						src={image}
+					/>
+				) : (
+					<Image
+						src={noUserPhoto}
+						className=" md:w-[200px] w-[140px] md:h-[200px] h-[140px]  rounded-full  border-[#f7f7f7] border-2"
+						alt="no profile photo"
+					/>
+				)}
+			</>
+			{/* ) : (
 				<ProfilePhotoSkeleton></ProfilePhotoSkeleton>
-			)}
+			)} */}
 		</div>
 	);
 };
