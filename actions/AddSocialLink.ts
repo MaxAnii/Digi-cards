@@ -19,7 +19,14 @@ export const addNewSocialLink = async (
 				link,
 			},
 		});
-		if (data) return { message: "New link added" };
+		if (data) {
+			const newLink = await db.socialLinks.findMany({
+				where: {
+					userId: data.userId,
+				},
+			});
+			return { newLink };
+		}
 		return { message: "Something went wrong" };
 	} catch (error) {}
 };

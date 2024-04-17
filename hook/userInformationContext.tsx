@@ -29,7 +29,13 @@ type UserInformationContextType = {
 	phoneCountryCode: string | null;
 	setEmail: React.Dispatch<React.SetStateAction<string | null>>;
 	email: string | null;
-	setCallSocialLinks: React.Dispatch<React.SetStateAction<boolean>>;
+	setSocialLinks: React.Dispatch<
+		React.SetStateAction<Array<{
+			id: string;
+			userId: string;
+			link: string;
+		}> | null>
+	>;
 	socialLinks: Array<{
 		id: string;
 		userId: string;
@@ -40,7 +46,6 @@ type UserInformationContextType = {
 	backgroundPhoto: Buffer | null;
 	setBackgroundPhoto: React.Dispatch<React.SetStateAction<Buffer | null>>;
 	isPending: boolean;
-	callSocialLinks: boolean;
 };
 
 export const UserInformationContext = createContext<UserInformationContextType>(
@@ -61,14 +66,14 @@ export const UserInformationContext = createContext<UserInformationContextType>(
 		phoneCountryCode: "",
 		setEmail: () => {},
 		email: "",
-		setCallSocialLinks: () => {},
+
+		setSocialLinks: () => {},
 		socialLinks: null,
 		profilePhoto: null,
 		setProfilePhoto: () => {},
 		backgroundPhoto: null,
 		setBackgroundPhoto: () => {},
 		isPending: false,
-		callSocialLinks: false,
 	}
 );
 
@@ -91,7 +96,7 @@ const UserInformationProvider = ({ children }: { children: ReactNode }) => {
 		link: string;
 	}> | null>(null);
 	const [isPending, startTransition] = useTransition();
-	const [callSocialLinks, setCallSocialLinks] = useState<boolean>(false);
+
 	useEffect(() => {
 		startTransition(async () => {
 			if (userId) {
@@ -115,9 +120,7 @@ const UserInformationProvider = ({ children }: { children: ReactNode }) => {
 		const data = await getSocialLinks(userId);
 		if (data) setSocialLinks(data);
 	};
-	// useEffect(() => {
-	// 	getLinks();
-	// }, [userId, callSocialLinks]);
+
 	return (
 		<UserInformationContext.Provider
 			value={{
@@ -141,10 +144,10 @@ const UserInformationProvider = ({ children }: { children: ReactNode }) => {
 				setProfilePhoto,
 				setBackgroundPhoto,
 				backgroundPhoto,
-				setCallSocialLinks,
+
+				setSocialLinks,
 				socialLinks,
 				isPending,
-				callSocialLinks,
 			}}
 		>
 			{children}

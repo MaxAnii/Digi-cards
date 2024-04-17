@@ -35,13 +35,17 @@ const SocialMediaLinkForm = (props: { id: string; link: string }) => {
 	const onSubmit = (values: z.infer<typeof updateSocialLinkSchema>) => {
 		startTranstion(async () => {
 			const data = await updateSocialLink(values);
-			userInformation.setCallSocialLinks((prev) => !prev);
+			if (data?.updateLinks) {
+				userInformation.setSocialLinks(data.updateLinks);
+			}
 		});
 	};
 	const deleteLink = async () => {
 		startTranstion(async () => {
 			const data = await deleteSocialLink(props.id);
-			userInformation.setCallSocialLinks((prev) => !prev);
+			if (data?.updateLinks) {
+				userInformation.setSocialLinks(data.updateLinks);
+			}
 		});
 	};
 	return (

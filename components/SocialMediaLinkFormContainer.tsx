@@ -11,12 +11,11 @@ const SocialMediaLinkFormContainer = () => {
 	const userInformation = useContext(UserInformationContext);
 	const [socialMedia, setSocialMedia] = useState<socialLinksType[] | null>();
 	const getLinks = async () => {
-		// const data = await getSocialLinks(userInformation.userId);
 		setSocialMedia(userInformation.socialLinks);
 	};
 	useEffect(() => {
 		getLinks();
-	}, []);
+	}, [userInformation.socialLinks]);
 	return (
 		<div>
 			{socialMedia?.map((elem: socialLinksType, index: number) => {

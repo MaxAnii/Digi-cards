@@ -113,7 +113,15 @@ export const updateSocialLink = async (
 				link,
 			},
 		});
-		if (data) return { message: "New link added" };
+		if (data) {
+			const updateLinks = await db.socialLinks.findMany({
+				where: {
+					userId: data.userId,
+				},
+			});
+			return { updateLinks };
+		}
+
 		return { message: "Something went wrong" };
 	} catch (error) {}
 };
@@ -127,7 +135,15 @@ export const deleteSocialLink = async (id: string) => {
 				userId: session.user.id,
 			},
 		});
-		if (data) return { message: "Link deleted" };
+		if (data) {
+			const updateLinks = await db.socialLinks.findMany({
+				where: {
+					userId: data.userId,
+				},
+			});
+			return { updateLinks };
+		}
+
 		return { message: "Something went wrong" };
 	} catch (error) {}
 };

@@ -30,8 +30,10 @@ const AddSocialLink = () => {
 	const onSubmit = async (values: z.infer<typeof addNewSocialLinkSchema>) => {
 		startTransition(async () => {
 			const data = await addNewSocialLink(values);
-			userInformation.setCallSocialLinks((prev) => !prev);
-			form.setValue("link", "");
+			if (data?.newLink) {
+				userInformation.setSocialLinks(data.newLink);
+				form.setValue("link", "");
+			}
 		});
 	};
 	return (
