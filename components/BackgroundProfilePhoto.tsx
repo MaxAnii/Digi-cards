@@ -7,9 +7,9 @@ import noBackgroundPhoto from "@/public/logo1.png";
 import BackgroundSkeletonLoader from "./BackgroundSkeletonLoader";
 const BackgroundProfilePhoto = () => {
 	const userInformation = useContext(UserInformationContext);
-	const [image, setImage] = useState("userImage");
+	const [image, setImage] = useState("");
 	const getBackgroundPhoto = async () => {
-		if (userInformation.backgroundPhoto) {
+		if (userInformation.backgroundPhoto !== null) {
 			const bufferData = Buffer.from(userInformation.backgroundPhoto);
 			const blob = new Blob([bufferData], { type: "image/jpeg" });
 			const url = URL.createObjectURL(blob);
@@ -19,6 +19,7 @@ const BackgroundProfilePhoto = () => {
 	useEffect(() => {
 		getBackgroundPhoto();
 	}, [userInformation.backgroundPhoto]);
+
 	return (
 		<div className="lg:w-[45vw]">
 			<div className="  border-[#f7f7f7] border-2 shadow-lg rounded-xl">
