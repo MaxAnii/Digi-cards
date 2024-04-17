@@ -86,6 +86,7 @@ export const getAllInformation = async (id: string) => {
 			where: { id },
 			select: {
 				BasicDetails: true,
+				socialLinks: true,
 			},
 		});
 		return data;

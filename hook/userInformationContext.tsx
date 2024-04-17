@@ -106,6 +106,7 @@ const UserInformationProvider = ({ children }: { children: ReactNode }) => {
 				setWhatsappCountryCode(data?.BasicDetails[0].whatsappCountryCode);
 				setWhatsappNumber(data?.BasicDetails[0].whatsapp);
 				setEmail(data?.BasicDetails[0].email);
+				setSocialLinks(data?.socialLinks);
 			}
 		});
 	}, [userId]);
@@ -114,9 +115,9 @@ const UserInformationProvider = ({ children }: { children: ReactNode }) => {
 		const data = await getSocialLinks(userId);
 		if (data) setSocialLinks(data);
 	};
-	useEffect(() => {
-		getLinks();
-	}, [userId, callSocialLinks]);
+	// useEffect(() => {
+	// 	getLinks();
+	// }, [userId, callSocialLinks]);
 	return (
 		<UserInformationContext.Provider
 			value={{
