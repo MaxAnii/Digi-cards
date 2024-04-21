@@ -85,7 +85,17 @@ export const getAllInformation = async (id: string) => {
 		const data = await db.user.findFirst({
 			where: { id },
 			select: {
-				BasicDetails: true,
+				BasicDetails: {
+					select: {
+						email: true,
+						whatsapp: true,
+						whatsappCountryCode: true,
+						phone: true,
+						phoneCountryCode: true,
+						name: true,
+						bio: true,
+					},
+				},
 				socialLinks: true,
 			},
 		});
