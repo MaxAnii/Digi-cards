@@ -34,7 +34,7 @@ const ContactIcon = () => {
 							className="md:h-[120px] md:w-[120px] h-[100px] w-[180px] hover:translate-y-2 flex justify-center items-center shadow-2xl custom-blur"
 						>
 							<div className="flex md:block items-center">
-								<div className="  	 flex justify-center items-center">
+								<div className="flex justify-center items-center">
 									<img
 										className=" h-[70px] w-[70px]   rounded-xl   p-2 "
 										src={`https://special-harlequin-squid.faviconkit.com/${link}/356`}
