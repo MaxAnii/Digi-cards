@@ -21,18 +21,18 @@ const BackgroundProfilePhoto = () => {
 	}, [userInformation.backgroundPhoto]);
 
 	return (
-		<div className="md:max-w-[70vw]">
+		<div className="md:w-[70vw] ">
 			<div className="  border-[#f7f7f7] border-2 shadow-lg rounded-xl">
 				{image ? (
 					<img
 						src={image}
 						alt="backgroun Image"
-						className="lg:h-[240px] md:h-[180px] h-[130px] w-[100%]   rounded-xl"
+						className="lg:h-[240px] md:h-[180px] h-[130px] min-w-[100%]   rounded-xl"
 					/>
 				) : (
 					<Image
 						src={noBackgroundPhoto}
-						className="lg:h-[280px] md:h-[180px] h-[130px] w-[100%]   rounded-xl p-2 bg-black	"
+						className="lg:h-[280px] md:h-[180px] h-[130px]  min-w-[100%]  rounded-xl p-2 bg-black	"
 						alt="Background Photo"
 					/>
 				)}

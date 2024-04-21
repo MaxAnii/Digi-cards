@@ -13,8 +13,8 @@ const ProfileContainer = () => {
 					<div className="">
 						<UserProfilePhotoContainer></UserProfilePhotoContainer>
 					</div>
-					<div className=" md:max-w-[70vw]  max-w-[100vw]">
-						<div className="flex flex-wrap justify-center md:gap-10 gap-4 mt-[50px]">
+					<div className=" md:max-w-[70vw]">
+						<div className="flex flex-wrap justify-center md:gap-10 gap-x-3 gap-y-5 mt-[50px]">
 							<MainContactLinks></MainContactLinks>
 							<ContactIcon></ContactIcon>
 						</div>
