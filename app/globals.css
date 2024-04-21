@@ -10,13 +10,7 @@ html {
   scrollbar-width: none;
   -ms-overflow-style: none;
 }
-.user-page{
-  background-image: url("../public/background2.jpg");
-  background-size: cover; /* or any other sizing method */
-  background-repeat: no-repeat;
-  background-position: center center; /* or any other position */
-  background-attachment: fixed;
-}
+
 .custom-blur{
   --tw-backdrop-blur: blur(10px);
   backdrop-filter: var(--tw-backdrop-blur) var(--tw-backdrop-brightness) var(--tw-backdrop-contrast) var(--tw-backdrop-grayscale) var(--tw-backdrop-hue-rotate) var(--tw-backdrop-invert) var(--tw-backdrop-opacity) var(--tw-backdrop-saturate) var(--tw-backdrop-sepia);
