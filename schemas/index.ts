@@ -1,4 +1,3 @@
-import { Description } from "@radix-ui/react-dialog";
 import * as z from "zod";
 
 export const resetSchema = z.object({
@@ -22,7 +21,7 @@ export const signupSchema = z.object({
 export const nameDescriptionSchema = z.object({
 	id: z.string(),
 	name: z.string().min(4),
-	description: z.string().min(5),
+	description: z.string().min(5).max(200),
 });
 
 export const basicDetailsSchema = z.object({
@@ -33,18 +32,14 @@ export const basicDetailsSchema = z.object({
 
 export const updateSocialLinkSchema = z.object({
 	id: z.string(),
-	link: z
-		.string()
-		.regex(/^https:\/\/\S+$/, {
-			message: "Link must start with 'https://' and not contain spaces",
-		}),
+	link: z.string().regex(/^https:\/\/\S+$/, {
+		message: "Link must start with 'https://' and not contain spaces",
+	}),
 });
 export const addNewSocialLinkSchema = z.object({
-	link: z
-		.string()
-		.regex(/^https:\/\/\S+$/, {
-			message: "Link must start with 'https://' and not contain spaces",
-		}),
+	link: z.string().regex(/^https:\/\/\S+$/, {
+		message: "Link must start with 'https://' and not contain spaces",
+	}),
 });
 export const updatePasswordSchema = z.object({
 	password: z.string().min(8),

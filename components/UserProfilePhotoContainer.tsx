@@ -13,7 +13,7 @@ const UserProfilePhotoContainer = () => {
 			<BackgroundProfilePhoto></BackgroundProfilePhoto>
 			<UserProfilePhoto></UserProfilePhoto>
 
-			<div className="md:mt-[-40px] px-6 ">
+			<div className="md:mt-[-40px] px-6 md:w-[70vw]">
 				<div className=" text-3xl ">{userInformation.userName}</div>
 				<div className="mb-1 text-lg font-medium ">
 					{userInformation.userbio}
