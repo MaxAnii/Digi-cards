@@ -44,11 +44,11 @@ const MainContactLinks = () => {
 					}`}
 					target="_blank"
 				>
-					<Card className="md:h-[120px] md:w-[120px] h-[100px] w-[120px] hover:translate-y-2 dark:bg-slate-200 flex justify-center items-center backdrop-blur-3xl">
-						<div>
+					<Card className="md:h-[120px] md:w-[120px] h-[100px] w-[180px] hover:translate-y-2 dark:bg-slate-700 flex justify-center items-center shadow-2xl ">
+						<div className="flex md:block items-center">
 							<div className="  	 flex justify-center items-center">
 								<Image
-									className=" md:h-[70px] md:w-[70px] h-[50px] w-[50px]  rounded-xl p-2 "
+									className=" h-[70px] w-[70px]   rounded-xl p-2 "
 									src={phone}
 									alt="favicon"
 								></Image>
@@ -68,11 +68,11 @@ const MainContactLinks = () => {
 					}`}
 					target="_blank"
 				>
-					<Card className="md:h-[120px] md:w-[120px] h-[100px] w-[120px] hover:translate-y-2 dark:bg-slate-200 flex justify-center items-center backdrop-blur-3xl">
-						<div>
+					<Card className="md:h-[120px] md:w-[120px] h-[100px] w-[180px] hover:translate-y-2 dark:bg-slate-200 flex justify-center items-center shadow-2xl">
+						<div className="flex md:block items-center">
 							<div className="  	 flex justify-center items-center">
 								<Image
-									className=" md:h-[70px] md:w-[70px] h-[50px] w-[50px]  rounded-xl p-2 "
+									className=" h-[70px] w-[70px]   rounded-xl p-2 "
 									src={whatsapp}
 									alt="favicon"
 								></Image>
@@ -86,17 +86,16 @@ const MainContactLinks = () => {
 			)}
 			{mainLinks?.email && (
 				<a href={`mailto:${mainLinks.email}`} target="_blank">
-					<Card className="md:h-[120px] md:w-[120px] h-[100px] w-[120px] hover:translate-y-2 dark:bg-slate-200 flex justify-center items-center backdrop-blur-3xl">
-						<div>
+					<Card className="md:h-[120px] md:w-[120px] h-[100px] w-[180px] hover:translate-y-2 dark:bg-slate-200 flex justify-center items-center shadow-2xl">
+						<div className="flex md:block items-center">
 							<div className="  	 flex justify-center items-center">
 								<Image
-									className=" md:h-[70px] md:w-[70px] h-[50px] w-[50px]  rounded-xl p-2 "
-									// src={`https://special-harlequin-squid.faviconkit.com/${link}/356`}
+									className=" h-[70px] w-[70px]   rounded-xl   p-2 "
 									src={gmail}
 									alt="favicon"
 								></Image>
 							</div>
-							<CardDescription className="dark:text-black pt-1 text-center overflow-hidden">
+							<CardDescription className="md:min-w-full  pt-1 text-center  overflow-auto text-sm md:text-base">
 								Gmail
 							</CardDescription>
 						</div>

@@ -12,7 +12,7 @@ function ChangeProfilePhoto() {
 	const [userPhoto, setuserPhoto] = useState<FormData>();
 	const handleFileChange = (event: ChangeEvent<HTMLInputElement>) => {
 		const file = event.target.files?.[0];
-		const maxSize = 2 * 1024 * 1024;
+		const maxSize = 9 * 1024 * 1024;
 
 		if (file && file.size > maxSize) {
 			toast({

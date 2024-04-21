@@ -31,17 +31,17 @@ const ContactIcon = () => {
 					<a href={elem.link} target="_blank" key={index}>
 						<Card
 							key={index}
-							className="md:h-[120px] md:w-[120px] h-[100px] w-[120px] hover:translate-y-2 dark:bg-slate-200 flex justify-center items-center "
+							className="md:h-[120px] md:w-[120px] h-[100px] w-[180px] hover:translate-y-2 flex justify-center items-center shadow-2xl custom-blur"
 						>
-							<div className=" ">
+							<div className="flex md:block items-center">
 								<div className="  	 flex justify-center items-center">
 									<img
-										className=" md:h-[70px] md:w-[70px] h-[50px] w-[50px]  rounded-xl   p-2 "
+										className=" h-[70px] w-[70px]   rounded-xl   p-2 "
 										src={`https://special-harlequin-squid.faviconkit.com/${link}/356`}
 										alt="favicon"
 									></img>
 								</div>
-								<CardDescription className="md:min-w-full dark:text-black  pt-1 text-center  overflow-auto text-sm md:text-base">
+								<CardDescription className="md:min-w-full  pt-1 text-center  overflow-auto text-sm md:text-base">
 									{webSiteName}
 								</CardDescription>
 							</div>

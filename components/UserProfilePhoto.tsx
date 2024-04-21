@@ -20,7 +20,7 @@ const UserProfilePhoto = () => {
 		getUserPhoto();
 	}, [userInformation.profilePhoto]);
 	return (
-		<div className="relative md:top-[-50px] top-[-20px]  z-0 ">
+		<div className="relative md:top-[-70px] top-[-20px]  z-0  ">
 			{image ? (
 				<img
 					className=" md:w-[200px] w-[140px] md:h-[200px] h-[140px] rounded-full  border-[#f7f7f7] border-2 object-fill"

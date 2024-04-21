@@ -24,22 +24,11 @@ export default async function RootLayout({
 	return (
 		<html lang="en">
 			<body
-				className={cn(
-					"min-h-screen bg-slate-900  antialiased",
-					roboto.className
-				)}
+				className={cn("min-h-screen  antialiased", roboto.className)}
+				// "min-h-screen   antialiased",
 			>
 				<Toaster />
-				<SessionProvider session={session}>
-					<ThemeProvider
-						attribute="class"
-						defaultTheme="dark"
-						enableSystem
-						disableTransitionOnChange
-					>
-						{children}
-					</ThemeProvider>
-				</SessionProvider>
+				<SessionProvider session={session}>{children}</SessionProvider>
 			</body>
 		</html>
 	);
