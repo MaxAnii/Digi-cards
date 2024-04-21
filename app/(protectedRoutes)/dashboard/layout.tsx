@@ -10,6 +10,7 @@ const layout = ({ children }: { children: React.ReactNode }) => {
 			<UserListProvider>
 				<NavbarContainer>
 					<AdminNavbarLinks></AdminNavbarLinks>
+
 					<AuthButtons></AuthButtons>
 				</NavbarContainer>
 				{children}

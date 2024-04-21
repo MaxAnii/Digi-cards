@@ -23,7 +23,7 @@ const BackgroundProfilePhoto = () => {
 	return (
 		<div className="md:max-w-[70vw]">
 			<div className="  border-[#f7f7f7] border-2 shadow-lg rounded-xl">
-				{!image ? (
+				{image ? (
 					<img
 						src={image}
 						alt="backgroun Image"

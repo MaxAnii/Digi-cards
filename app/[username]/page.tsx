@@ -33,8 +33,12 @@ function Page() {
 			{!isPending ? (
 				<>
 					<NavbarContainer>
-						<AdminNavbarLinks></AdminNavbarLinks>
-						<AuthButtons></AuthButtons>
+						<div>
+							<AdminNavbarLinks></AdminNavbarLinks>
+						</div>
+						<div>
+							<AuthButtons></AuthButtons>
+						</div>
 					</NavbarContainer>
 					{showuser ? <ProfileContainer></ProfileContainer> : <></>}
 				</>

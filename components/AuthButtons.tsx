@@ -8,25 +8,34 @@ const AuthButtons = () => {
 	return (
 		<>
 			{user ? (
-				<Button
-					className="pl-2  text-sm"
-					onClick={() => {
-						signOut();
-					}}
-				>
-					Logout
-				</Button>
+				<div className="flex justify-end mr-4 mt-1">
+					<Button
+						className="pl-2  text-sm "
+						onClick={() => {
+							signOut();
+						}}
+					>
+						Logout
+					</Button>
+				</div>
 			) : (
-				<>
-					<Link href="/signin">
-						<Button className="p-2  text-sm w-[60px] mr-2">Sign in</Button>
-					</Link>
-					<Link href="/username">
-						<Button className="p-2  text-sm w-[60px]" variant="secondary">
-							Sign up
-						</Button>
-					</Link>
-				</>
+				<div className="flex">
+					<div>
+						<Link href="/signin">
+							<Button className="p-2  text-sm w-[60px] mr-4">Sign in</Button>
+						</Link>
+					</div>
+					<div>
+						<Link href="/username">
+							<Button
+								className="p-2  text-sm w-[60px] mr-4"
+								variant="secondary"
+							>
+								Sign up
+							</Button>
+						</Link>
+					</div>
+				</div>
 			)}
 		</>
 	);

@@ -6,18 +6,18 @@ import Link from "next/link";
 const AdminNavbarLinks = () => {
 	const admin = useCurrentUser();
 	return (
-		<div>
+		<div className="flex justify-end items-end">
 			{admin?.role === "admin" && (
-				<>
-					<Link href="/dashboard">
+				<div>
+					<Link href="/dashboard" className="mt-1">
 						<Button variant="ghost">Dashboard</Button>
 					</Link>
 					<Link href={`/${admin?.username}`}>
-						<Button variant="ghost" className="mx-1">
+						<Button variant="ghost" className="mt-1">
 							My profile
 						</Button>
 					</Link>
-				</>
+				</div>
 			)}
 		</div>
 	);
