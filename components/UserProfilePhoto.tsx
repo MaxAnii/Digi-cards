@@ -10,10 +10,7 @@ const UserProfilePhoto = () => {
 	const [image, setImage] = useState("");
 	const getUserPhoto = async () => {
 		if (userInformation.profilePhoto) {
-			const bufferData = Buffer.from(userInformation.profilePhoto);
-			const blob = new Blob([bufferData], { type: "image/jpeg" });
-			const url = URL.createObjectURL(blob);
-			setImage(url);
+			setImage(userInformation.profilePhoto);
 		}
 	};
 	useEffect(() => {

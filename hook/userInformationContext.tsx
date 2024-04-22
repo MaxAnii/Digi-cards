@@ -41,10 +41,10 @@ type UserInformationContextType = {
 		userId: string;
 		link: string;
 	}> | null;
-	profilePhoto: Buffer | null;
-	setProfilePhoto: React.Dispatch<React.SetStateAction<Buffer | null>>;
-	backgroundPhoto: Buffer | null;
-	setBackgroundPhoto: React.Dispatch<React.SetStateAction<Buffer | null>>;
+	profilePhoto: string | null;
+	setProfilePhoto: React.Dispatch<React.SetStateAction<string | null>>;
+	backgroundPhoto: string | null;
+	setBackgroundPhoto: React.Dispatch<React.SetStateAction<string | null>>;
 	isPending: boolean;
 };
 
@@ -79,8 +79,8 @@ export const UserInformationContext = createContext<UserInformationContextType>(
 
 const UserInformationProvider = ({ children }: { children: ReactNode }) => {
 	const [userId, setUserId] = useState<string | null>("");
-	const [profilePhoto, setProfilePhoto] = useState<Buffer | null>(null);
-	const [backgroundPhoto, setBackgroundPhoto] = useState<Buffer | null>(null);
+	const [profilePhoto, setProfilePhoto] = useState<string | null>(null);
+	const [backgroundPhoto, setBackgroundPhoto] = useState<string | null>(null);
 	const [userName, setUserName] = useState<string | null>("");
 	const [userbio, setUserBio] = useState<string | null>("");
 	const [phoneCountryCode, setPhoneCountryCode] = useState<string | null>("");

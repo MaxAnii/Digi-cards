@@ -1,29 +1,24 @@
 "use client";
-import { getPhoto } from "@/actions/userInformation";
 import { UserInformationContext } from "@/hook/userInformationContext";
 import Image from "next/image";
-import { useContext, useEffect, useState, useTransition } from "react";
+import { useContext, useEffect, useState } from "react";
 import noBackgroundPhoto from "@/public/logo1.png";
-import BackgroundSkeletonLoader from "./BackgroundSkeletonLoader";
 const BackgroundProfilePhoto = () => {
 	const userInformation = useContext(UserInformationContext);
 	const [image, setImage] = useState("");
 	const getBackgroundPhoto = async () => {
 		if (userInformation.backgroundPhoto !== null) {
-			const bufferData = Buffer.from(userInformation.backgroundPhoto);
-			const blob = new Blob([bufferData], { type: "image/jpeg" });
-			const url = URL.createObjectURL(blob);
-			setImage(url);
+			setImage(userInformation.backgroundPhoto);
 		}
 	};
 	useEffect(() => {
 		getBackgroundPhoto();
 	}, [userInformation.backgroundPhoto]);
-
+	console.log(image);
 	return (
 		<div className="md:w-[70vw] ">
 			<div className="  border-[#f7f7f7] border-2 shadow-lg rounded-xl">
-				{image ? (
+				{!!image ? (
 					<img
 						src={image}
 						alt="backgroun Image"

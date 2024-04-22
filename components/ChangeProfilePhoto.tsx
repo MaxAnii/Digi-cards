@@ -37,15 +37,15 @@ function ChangeProfilePhoto() {
 		if (userPhoto) {
 			startTranstion(async () => {
 				const response = await updatePhoto(userPhoto, "profilePhoto");
-				if (response?.imageBuffer) {
-					userInformation.setProfilePhoto(response.imageBuffer);
+				if (response?.message === "Profile updated") {
+					userInformation.setProfilePhoto(response.image);
 					toast({
 						title: response.message,
 						duration: 3000,
 					});
 				} else {
 					toast({
-						title: response?.message,
+						title: "Something went wrong",
 						duration: 3000,
 						variant: "destructive",
 					});

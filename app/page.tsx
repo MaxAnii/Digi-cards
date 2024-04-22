@@ -10,9 +10,9 @@ const LandingPage = () => {
 			</NavbarContainer>
 			<div className="flex h-screen w-full items-center justify-center">
 				<div className="text-center">
-					<button className="my-2 rounded-3xl p-5 text-xl dark:bg-black">
+					<Button className="my-2 rounded-3xl p-5 text-xl " variant="outline">
 						Welcome to Digi Cards
-					</button>
+					</Button>
 					<h1 className="text-3xl font-bold lg:text-5xl">
 						Create & Share Your Digital Profile
 					</h1>
@@ -25,7 +25,7 @@ const LandingPage = () => {
 					</p>
 					<div className="text-3xl ">
 						<Link href="/signin">
-							<Button size="lg" className="text-base text-indigo-950">
+							<Button size="lg" className="text-base ">
 								Get Started
 							</Button>
 						</Link>

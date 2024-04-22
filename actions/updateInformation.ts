@@ -2,6 +2,18 @@
 import * as z from "zod";
 import { db } from "@/lib/db";
 import {
+	S3Client,
+	ListBucketsCommand,
+	PutObjectCommand,
+} from "@aws-sdk/client-s3";
+const s3client = new S3Client({
+	region: process.env.S3_REGION,
+	credentials: {
+		accessKeyId: process.env.S3_ACCESS_KEY || "",
+		secretAccessKey: process.env.S3_SECRET_KEY || "",
+	},
+});
+import {
 	basicDetailsSchema,
 	nameDescriptionSchema,
 	updateSocialLinkSchema,
@@ -38,30 +50,38 @@ export const updatePhoto = async (
 	try {
 		const session = await auth();
 		if (!session?.user.id) return;
+
 		const file = data.get(image) as File | null;
 		if (!file) {
 			throw new Error("File not found");
 		}
-		const arrayBuffer = await file?.arrayBuffer();
-		const buffer = new Uint8Array(arrayBuffer);
 
-		const imageUploaded = await db.basicDetails.update({
-			where: {
-				userId: session?.user.id,
-			},
-			data: {
-				[image]: buffer,
-			},
-		});
-		if (imageUploaded)
+		const arrayBuffer = await file?.arrayBuffer();
+		const buffer = Buffer.from(arrayBuffer);
+
+		const params = {
+			Bucket: process.env.S3_BUCKET_NAME,
+			Key: `${image}${session.user.id}`,
+			Body: buffer,
+			ContentType: "image/jpg",
+		};
+
+		const command = new PutObjectCommand(params);
+		const response = await s3client.send(command);
+		if (response.$metadata.httpStatusCode === 200) {
+			const data = await db.basicDetails.update({
+				where: {
+					userId: session.user.id,
+				},
+				data: {
+					[image]: `https://digicards2.s3.eu-north-1.amazonaws.com/${image}${session.user.id}`,
+				},
+			});
 			return {
-				message: "profile updated",
-				imageBuffer:
-					image === "backgroundPhoto"
-						? imageUploaded.backgroundPhoto
-						: imageUploaded.profilePhoto,
+				message: "Profile updated",
+				image: `https://digicards2.s3.eu-north-1.amazonaws.com/${image}${session.user.id}`,
 			};
-		else return { message: "Something went wrong!" };
+		}
 	} catch (error: any) {
 		console.log(error.message);
 	}

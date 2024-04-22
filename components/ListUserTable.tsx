@@ -30,14 +30,8 @@ const ListUserTable = () => {
 					</TableHeader>
 					<TableBody>
 						{userList.data.map((item: any, index: number) => {
-							let url = undefined;
-							if (item.BasicDetails[0].profilePhoto) {
-								const bufferData = Buffer.from(
-									item.BasicDetails[0].profilePhoto
-								);
-								const blob = new Blob([bufferData], { type: "image/jpeg" });
-								url = URL.createObjectURL(blob);
-							}
+							let url = item.BasicDetails[0].profilePhoto;
+
 							return (
 								<TableRow key={index}>
 									<TableCell className="p-4 font-medium">

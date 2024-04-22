@@ -31,8 +31,8 @@ model BasicDetails {
   userId              String  @unique
   name                String?
   bio                 String?
-  profilePhoto        Bytes?
-  backgroundPhoto     Bytes?
+  profilePhoto        String?
+  backgroundPhoto     String?
   whatsappCountryCode String?
   phoneCountryCode    String?
   whatsapp            String?

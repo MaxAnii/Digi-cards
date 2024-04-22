@@ -10,7 +10,12 @@ html {
   scrollbar-width: none;
   -ms-overflow-style: none;
 }
-
+.background-image{
+  /* background-attachment: fixed; */
+  background-image: url("../public/background2.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+}
 .custom-blur{
   --tw-backdrop-blur: blur(10px);
   backdrop-filter: var(--tw-backdrop-blur) var(--tw-backdrop-brightness) var(--tw-backdrop-contrast) var(--tw-backdrop-grayscale) var(--tw-backdrop-hue-rotate) var(--tw-backdrop-invert) var(--tw-backdrop-opacity) var(--tw-backdrop-saturate) var(--tw-backdrop-sepia);

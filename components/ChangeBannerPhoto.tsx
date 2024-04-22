@@ -35,15 +35,15 @@ function ChangeBannerPhoto() {
 		if (bannerPhoto) {
 			startTranstion(async () => {
 				const response = await updatePhoto(bannerPhoto, "backgroundPhoto");
-				if (response?.imageBuffer) {
-					userInformation.setBackgroundPhoto(response.imageBuffer);
+				if (response?.message === "Profile updated") {
+					userInformation.setBackgroundPhoto(response.image);
 					toast({
 						title: response.message,
 						duration: 3000,
 					});
 				} else {
 					toast({
-						title: response?.message,
+						title: "Something went wrong",
 						duration: 3000,
 						variant: "destructive",
 					});
