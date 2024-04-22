@@ -54,7 +54,7 @@ const UserNameForm = () => {
 					)}
 				</div>
 			</div>
-			<div className=" py-2 px-2 rounded-lg text-sm bg-gray-100  mx-2">{`https://digicards1.vercel.app/${username}`}</div>
+			<div className=" py-2 px-2 rounded-lg text-sm bg-gray-200  mx-2">{`digicards1.vercel.app/${username}`}</div>
 			<div className="text-red-700 mt-2 text-sm ">{messsage}</div>
 			{showNextButton && (
 				<Link
