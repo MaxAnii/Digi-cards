@@ -31,7 +31,7 @@ const ContactIcon = () => {
 					<a href={elem.link} target="_blank" key={index}>
 						<Card
 							key={index}
-							className="md:h-[120px] md:w-[120px] h-[100px] w-[180px] hover:translate-y-2 flex justify-center items-center shadow-2xl custom-blur"
+							className="md:h-[120px] md:w-[120px] h-[100px] w-[180px] hover:translate-y-2 flex justify-center items-center shadow-2xl bg-slate-300 custom-blur"
 						>
 							<div className="flex md:block items-center">
 								<div className="flex justify-center items-center">
@@ -41,7 +41,7 @@ const ContactIcon = () => {
 										alt="favicon"
 									></img>
 								</div>
-								<CardDescription className="md:min-w-full  pt-1 text-center  overflow-auto text-sm md:text-base">
+								<CardDescription className="md:min-w-full  pt-1 text-center  overflow-auto text-sm md:text-base text-slate-600">
 									{webSiteName}
 								</CardDescription>
 							</div>

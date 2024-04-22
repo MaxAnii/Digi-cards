@@ -44,7 +44,7 @@ const MainContactLinks = () => {
 					}`}
 					target="_blank"
 				>
-					<Card className="md:h-[120px] md:w-[120px] h-[100px] w-[180px] hover:translate-y-2 dark:bg-slate-700 flex justify-center items-center shadow-2xl ">
+					<Card className="md:h-[120px] md:w-[120px] h-[100px] w-[180px] hover:translate-y-2 flex justify-center items-center shadow-2xl bg-slate-300 custom-blur">
 						<div className="flex md:block items-center">
 							<div className="  	 flex justify-center items-center">
 								<Image
@@ -53,7 +53,7 @@ const MainContactLinks = () => {
 									alt="favicon"
 								></Image>
 							</div>
-							<CardDescription className="dark:text-black pt-1 text-center overflow-hidden">
+							<CardDescription className="text-slate-600 pt-1 text-center overflow-hidden">
 								Phone
 							</CardDescription>
 						</div>
@@ -68,7 +68,7 @@ const MainContactLinks = () => {
 					}`}
 					target="_blank"
 				>
-					<Card className="md:h-[120px] md:w-[120px] h-[100px] w-[180px] hover:translate-y-2 dark:bg-slate-200 flex justify-center items-center shadow-2xl">
+					<Card className="md:h-[120px] md:w-[120px] h-[100px] w-[180px] hover:translate-y-2 flex justify-center items-center shadow-2xl bg-slate-300 custom-blur">
 						<div className="flex md:block items-center">
 							<div className="  	 flex justify-center items-center">
 								<Image
@@ -77,7 +77,7 @@ const MainContactLinks = () => {
 									alt="favicon"
 								></Image>
 							</div>
-							<CardDescription className="dark:text-black pt-1 text-center overflow-hidden">
+							<CardDescription className=" pt-1 text-center overflow-hidden text-slate-600">
 								WhatsApp
 							</CardDescription>
 						</div>
@@ -86,7 +86,7 @@ const MainContactLinks = () => {
 			)}
 			{mainLinks?.email && (
 				<a href={`mailto:${mainLinks.email}`} target="_blank">
-					<Card className="md:h-[120px] md:w-[120px] h-[100px] w-[180px] hover:translate-y-2 dark:bg-slate-200 flex justify-center items-center shadow-2xl">
+					<Card className="md:h-[120px] md:w-[120px] h-[100px] w-[180px] hover:translate-y-2 flex justify-center items-center shadow-2xl bg-slate-300 custom-blur">
 						<div className="flex md:block items-center">
 							<div className="  	 flex justify-center items-center">
 								<Image
@@ -95,7 +95,7 @@ const MainContactLinks = () => {
 									alt="favicon"
 								></Image>
 							</div>
-							<CardDescription className="md:min-w-full  pt-1 text-center  overflow-auto text-sm md:text-base">
+							<CardDescription className="md:min-w-full  pt-1 text-center  overflow-auto text-sm md:text-base text-slate-600">
 								Gmail
 							</CardDescription>
 						</div>
