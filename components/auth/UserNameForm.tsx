@@ -43,7 +43,7 @@ const UserNameForm = () => {
 				<Input
 					placeholder="your name"
 					onChange={(e) => setUsername(e.target.value)}
-					className="my-2 pr-12"
+					className="my-2 pr-12 shadow-lg bg-gray-100"
 					disabled={isPending}
 					onFocus={() => setShowLoader(true)}
 					onBlur={() => setShowLoader(false)}
@@ -54,7 +54,7 @@ const UserNameForm = () => {
 					)}
 				</div>
 			</div>
-			<div className=" py-2 px-2 rounded-lg text-sm bg-gray-100 dark:bg-gray-900 mx-2">{`https:didi-cards/${username}`}</div>
+			<div className=" py-2 px-2 rounded-lg text-sm bg-gray-100  mx-2">{`https://digicards1.vercel.app/${username}`}</div>
 			<div className="text-red-700 mt-2 text-sm ">{messsage}</div>
 			{showNextButton && (
 				<Link
