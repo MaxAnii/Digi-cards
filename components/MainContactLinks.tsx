@@ -44,7 +44,7 @@ const MainContactLinks = () => {
 					}`}
 					target="_blank"
 				>
-					<Card className="md:h-[120px] md:w-[120px] h-[100px] w-[180px] hover:translate-y-2 dark:bg-slate-700 flex justify-center items-center shadow-2xl ">
+					<Card className="md:h-[120px] md:w-[120px] h-[100px] w-[180px] hover:translate-y-2 flex justify-center items-center shadow-2xl custom-blur">
 						<div className="flex md:block items-center">
 							<div className="  	 flex justify-center items-center">
 								<Image
@@ -68,7 +68,7 @@ const MainContactLinks = () => {
 					}`}
 					target="_blank"
 				>
-					<Card className="md:h-[120px] md:w-[120px] h-[100px] w-[180px] hover:translate-y-2 dark:bg-slate-200 flex justify-center items-center shadow-2xl">
+					<Card className="md:h-[120px] md:w-[120px] h-[100px] w-[180px] hover:translate-y-2 flex justify-center items-center shadow-2xl custom-blur">
 						<div className="flex md:block items-center">
 							<div className="  	 flex justify-center items-center">
 								<Image
@@ -86,7 +86,7 @@ const MainContactLinks = () => {
 			)}
 			{mainLinks?.email && (
 				<a href={`mailto:${mainLinks.email}`} target="_blank">
-					<Card className="md:h-[120px] md:w-[120px] h-[100px] w-[180px] hover:translate-y-2 dark:bg-slate-200 flex justify-center items-center shadow-2xl">
+					<Card className="md:h-[120px] md:w-[120px] h-[100px] w-[180px] hover:translate-y-2 flex justify-center items-center shadow-2xl custom-blur">
 						<div className="flex md:block items-center">
 							<div className="  	 flex justify-center items-center">
 								<Image
