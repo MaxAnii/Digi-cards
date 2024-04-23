@@ -15,12 +15,12 @@ const UserNameForm = () => {
 	const [showLoader, setShowLoader] = useState<boolean>(false);
 	const onChange = async () => {
 		if (username.length === 0) return;
-		const usernameRegex = /^[a-zA-Z0-9_]+$/;
+		const usernameRegex = /^[a-z0-9_]+$/;
 		const isValidUsername = usernameRegex.test(username);
 
 		if (!isValidUsername)
 			return setMessage(
-				"User name should not contain any spaces and special characters"
+				"User name should not contain any captial letters, spaces and special characters"
 			);
 		const usernameExists = await checkUsernameExists(username);
 		setShowLoader(false);
