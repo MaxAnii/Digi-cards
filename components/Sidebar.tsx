@@ -12,6 +12,7 @@ import EditProfileButton from "./EditProfileButton";
 
 import SocialMedialLinkForm from "./EidtProfilContainer";
 import PersonalAccountContainer from "./PersonalAccountContainer";
+import CopyLink from "./CopyLink";
 
 const ProfileEditContainer = () => {
 	return (
@@ -27,6 +28,7 @@ const ProfileEditContainer = () => {
 							<TabsList className="flex justify-center gap-4">
 								<TabsTrigger value="account">Account</TabsTrigger>
 								<TabsTrigger value="personal">Personal</TabsTrigger>
+								<CopyLink></CopyLink>
 							</TabsList>
 
 							<TabsContent value="account">
