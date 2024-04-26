@@ -8,7 +8,7 @@ import { Card } from "./ui/card";
 const ProfileContainer = () => {
 	return (
 		<>
-			<div className="flex justify-center bg-gray-200 min-h-[95vh]">
+			<div className="flex justify-center bg-gradient-to-tr from-neutral-300 via-slate-100 to-stone-400 min-h-[95vh] ">
 				<div className="  my-5  rounded-lg  pb-5 custom-blur">
 					<div className="">
 						<UserProfilePhotoContainer></UserProfilePhotoContainer>

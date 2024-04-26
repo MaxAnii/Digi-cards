@@ -1,9 +1,7 @@
 "use client";
-import { getSocialLinks } from "@/actions/userInformation";
 import { Card, CardDescription } from "@/components/ui/card";
 import { UserInformationContext } from "@/hook/userInformationContext";
 import { useContext, useEffect, useState, useTransition } from "react";
-import ContactIconSkeletonLoader from "./ContactIconSkeletonLoader";
 type socialLinks = {
 	id: string;
 	userId: string;
@@ -31,7 +29,7 @@ const ContactIcon = () => {
 					<a href={elem.link} target="_blank" key={index}>
 						<Card
 							key={index}
-							className="md:h-[120px] md:w-[120px] h-[100px] w-[180px] hover:translate-y-2 flex justify-center items-center shadow-2xl custom-blur"
+							className="md:h-[120px] md:w-[120px] h-[100px] w-[180px] hover:translate-y-2 flex justify-center items-center shadow-xl"
 						>
 							<div className="flex md:block items-center">
 								<div className="flex justify-center items-center">
@@ -41,7 +39,7 @@ const ContactIcon = () => {
 										alt="favicon"
 									></img>
 								</div>
-								<CardDescription className="md:min-w-full  pt-1 text-center  overflow-auto text-sm md:text-base">
+								<CardDescription className="md:min-w-full  pt-1 text-center  overflow-auto text-sm md:text-base ">
 									{webSiteName}
 								</CardDescription>
 							</div>

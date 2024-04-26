@@ -57,19 +57,21 @@ const CountryCodeDropdown: React.FC<Props> = ({
 	return (
 		<>
 			<div ref={dropdownRef} className="relative inline-block my-2">
-				<Input
-					type="text"
-					placeholder="Search country..."
-					className=" border-gray-100 rounded-md px-3 py- border outline-none focus:border-blue-100 bg-white/15"
-					value={searchTerm}
-					onChange={(e) => setSearchTerm(e.target.value)}
-					onClick={() => {
-						setIsOpen(true);
-					}}
-					required
-				/>
+				<form autoComplete="off">
+					<Input
+						type="text"
+						placeholder="Search country..."
+						className=" border-gray-100 rounded-md px-3 py- border outline-none focus:border-blue-100 bg-white/15"
+						value={searchTerm}
+						onChange={(e) => setSearchTerm(e.target.value)}
+						onClick={() => {
+							setIsOpen(true);
+						}}
+						required
+					/>
+				</form>
 				{isOpen && (
-					<ul className="absolute z-10 mt-1 w-full bg-black rounded-md shadow-lg h-[300px] overflow-auto   ">
+					<ul className="absolute z-10 mt-1 w-full bg-black rounded-md shadow-lg h-[300px] overflow-auto  text-white ">
 						{filteredCountryCodes.map(({ code, country }, index) => (
 							<li
 								key={index}

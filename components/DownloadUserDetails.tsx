@@ -79,7 +79,7 @@ END:VCARD`;
 
 	return (
 		<a href={vCardURL} download={`${userData.name}.vcf`}>
-			<Card className="md:h-[50px] md:w-[50px] h-[50px] w-[50px] p-3 dark:bg-slate-300 dark:text-black hover:shadow-xl hover:translate-y-2">
+			<Card className="md:h-[50px] md:w-[50px] h-[50px] w-[50px] p-3  hover:shadow-xl hover:translate-y-2">
 				<BsSave size="2xl" />
 			</Card>
 		</a>

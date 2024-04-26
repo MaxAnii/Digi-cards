@@ -30,19 +30,10 @@ const FormContainer = ({
 	//   };
 	return (
 		<div className=" ">
-			<Card className="  shadow-md md:w-[400px] w-[300px] mt-4">
+			<Card className="  shadow-md md:w-[400px] w-[300px] mt-4 custom-blur">
 				<CardHeader className="text-center">{title}</CardHeader>
 				<CardContent>{children}</CardContent>
-				<CardFooter className="gap-x-2">
-					{/* <Button variant="secondary" className="w-[50%]" onClick={googleAuth}>
-						<FaGoogle size={20}></FaGoogle>
-					</Button>
-					<Button variant="secondary" className="w-[50%] ">
-						<Link href="/whatsAppAuth">
-							<FaWhatsapp size={20}></FaWhatsapp>
-						</Link>
-					</Button> */}
-				</CardFooter>
+				<CardFooter className="gap-x-2"></CardFooter>
 				<CardFooter>
 					<Link href={backButtonhref}>
 						<Button variant="link">{backButtonLabel}</Button>
