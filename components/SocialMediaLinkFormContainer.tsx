@@ -1,7 +1,6 @@
 import { useContext, useEffect, useState } from "react";
 import SocialMediaLinkForm from "./SocialMediaLinkForm";
 import { UserInformationContext } from "@/hook/userInformationContext";
-import { getSocialLinks } from "@/actions/userInformation";
 type socialLinksType = {
 	id: string;
 	userId: string;

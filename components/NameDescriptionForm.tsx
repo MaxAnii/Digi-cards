@@ -36,7 +36,6 @@ export function NameDescriptionForm() {
 	});
 	const getNamebio = async () => {
 		if (!userInformation.userId) return;
-		// const data = await getNameDescription(userInformation.userId);
 
 		if (userInformation.userName) {
 			form.setValue("name", userInformation.userName);

@@ -1,6 +1,5 @@
 "use client";
 import { useContext } from "react";
-import { CardHeader, CardTitle } from "./ui/card";
 import UserProfilePhoto from "./UserProfilePhoto";
 import BackgroundProfilePhoto from "./BackgroundProfilePhoto";
 import { UserInformationContext } from "@/hook/userInformationContext";

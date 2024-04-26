@@ -1,10 +1,7 @@
-import Link from "next/link";
 import { BsSave } from "react-icons/bs";
 import { Card } from "./ui/card";
 import { useContext, useEffect, useState } from "react";
 import { UserInformationContext } from "@/hook/userInformationContext";
-import { getUserDetailsToDownload } from "@/actions/DownloadDetails";
-import { getSocialLinks } from "@/actions/userInformation";
 
 type DataType =
 	| {
@@ -72,7 +69,6 @@ EMAIL:${userData.email ?? ""}
 ${socialLinks}
 END:VCARD`;
 
-	// Encode vCardData
 	const vCardURL = `data:text/vcard;charset=utf-8,${encodeURIComponent(
 		vCardData
 	)}`;

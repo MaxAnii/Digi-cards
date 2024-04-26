@@ -1,6 +1,5 @@
 "use client";
 import FormContainer from "@/components/auth/FormContainer";
-import SignupForm from "@/components/auth/SignupForm";
 import UserNameForm from "@/components/auth/UserNameForm";
 const UserName = () => {
 	return (

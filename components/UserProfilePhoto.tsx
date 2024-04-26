@@ -1,10 +1,8 @@
 "use client";
-import { getPhoto } from "@/actions/userInformation";
 import { UserInformationContext } from "@/hook/userInformationContext";
 import { useContext, useEffect, useState, useTransition } from "react";
 import noUserPhoto from "@/public/NoProfilePhoto.jpg";
 import Image from "next/image";
-import ProfilePhotoSkeleton from "./ProfilePhotoSkeleton";
 const UserProfilePhoto = () => {
 	const userInformation = useContext(UserInformationContext);
 	const [image, setImage] = useState("");

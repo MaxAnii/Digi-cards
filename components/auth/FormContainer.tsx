@@ -7,27 +7,18 @@ import {
 } from "@/components/ui/card";
 import { Button } from "../ui/button";
 import Link from "next/link";
-// import { FaGoogle } from "react-icons/fa";
-// import { FaWhatsapp } from "react-icons/fa";
 type propsType = {
 	children: React.ReactNode;
 	title: string;
 	backButtonLabel: string;
 	backButtonhref: string;
 };
-// import { signIn } from "next-auth/react"; // auth for the client side
-// import { DEFAULT_LOGIN_REDIRECT } from "@/routes";
 const FormContainer = ({
 	children,
 	title,
 	backButtonLabel,
 	backButtonhref,
 }: propsType) => {
-	//   const googleAuth = () => {
-	//     signIn("google", {
-	//       callbackUrl: DEFAULT_LOGIN_REDIRECT,
-	//     });
-	//   };
 	return (
 		<div className=" ">
 			<Card className="  shadow-md md:w-[400px] w-[300px] mt-4 custom-blur">

@@ -3,7 +3,6 @@ import UserProfilePhotoContainer from "./UserProfilePhotoContainer";
 import ContactIcon from "./SocialContactIcon";
 import MainContactLinks from "./MainContactLinks";
 import DownloadUserDetails from "./DownloadUserDetails";
-import { Card } from "./ui/card";
 
 const ProfileContainer = () => {
 	return (
