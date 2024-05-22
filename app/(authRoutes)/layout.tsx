@@ -7,7 +7,7 @@ export default function RootLayout({
 	children: React.ReactNode;
 }>) {
 	return (
-		<div className="background-image h-screen">
+		<div className="auth-background h-screen">
 			<NavbarContainer>
 				<AuthButtons></AuthButtons>
 			</NavbarContainer>
