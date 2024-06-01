@@ -51,7 +51,7 @@ const MainContactLinks = () => {
 									alt="favicon"
 								></Image>
 							</div>
-							<CardDescription className="dark:text-black pt-1 text-center overflow-hidden">
+							<CardDescription className="dark:text-black pt-1 text-center overflow-hidden text-black">
 								Phone
 							</CardDescription>
 						</div>
@@ -75,7 +75,7 @@ const MainContactLinks = () => {
 									alt="favicon"
 								></Image>
 							</div>
-							<CardDescription className="dark:text-black pt-1 text-center overflow-hidden">
+							<CardDescription className="dark:text-black pt-1 text-center overflow-hidden text-black">
 								WhatsApp
 							</CardDescription>
 						</div>
@@ -93,7 +93,7 @@ const MainContactLinks = () => {
 									alt="favicon"
 								></Image>
 							</div>
-							<CardDescription className="md:min-w-full  pt-1 text-center  overflow-auto text-sm md:text-base">
+							<CardDescription className="md:min-w-full  pt-1 text-center  overflow-auto text-sm md:text-base text-black">
 								Gmail
 							</CardDescription>
 						</div>

@@ -39,7 +39,7 @@ const ContactIcon = () => {
 										alt="favicon"
 									></img>
 								</div>
-								<CardDescription className="md:min-w-full  pt-1 text-center  overflow-auto text-sm md:text-base ">
+								<CardDescription className="md:min-w-full  pt-1 text-center  overflow-auto text-sm md:text-base text-black">
 									{webSiteName}
 								</CardDescription>
 							</div>
