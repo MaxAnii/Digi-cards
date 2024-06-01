@@ -8,7 +8,7 @@ const ProfileContainer = () => {
 	return (
 		<>
 			<div className="flex justify-center profile-background min-h-[95vh] ">
-				{/* <div className="flex justify-center bg-gradient-to-tr from-neutral-300 via-slate-100 to-stone-400 min-h-[95vh] "> */}
+				{/* <div className="flex justify-center bg-gradient-to-r from-slate-300 to-slate-500 min-h-[95vh] "> */}
 				<div className="  my-5  rounded-lg  pb-5 ">
 					<div className="">
 						<UserProfilePhotoContainer></UserProfilePhotoContainer>
@@ -18,14 +18,14 @@ const ProfileContainer = () => {
 							<MainContactLinks></MainContactLinks>
 							<ContactIcon></ContactIcon>
 						</div>
+						<div className="flex justify-center mt-10">
+							<DownloadUserDetails></DownloadUserDetails>
+						</div>
 					</div>
 				</div>
 			</div>
 			<div className="fixed bottom-5 md:right-12 right-1 drop-shadow-xl">
 				<ProfileEditContainer></ProfileEditContainer>
-			</div>
-			<div className="md:ml-12 ml-1	fixed bottom-7	 md:justify-end sm:justify-center  drop-shadow-xl">
-				<DownloadUserDetails></DownloadUserDetails>
 			</div>
 		</>
 	);
