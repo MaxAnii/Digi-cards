@@ -2,6 +2,7 @@ import { BsSave } from "react-icons/bs";
 import { Card } from "./ui/card";
 import { useContext, useEffect, useState } from "react";
 import { UserInformationContext } from "@/hook/userInformationContext";
+import { Button } from "./ui/button";
 
 type DataType =
 	| {
@@ -75,9 +76,17 @@ END:VCARD`;
 
 	return (
 		<a href={vCardURL} download={`${userData.name}.vcf`}>
-			<Card className="md:h-[50px] md:w-[50px] h-[50px] w-[50px] p-3  hover:shadow-xl hover:translate-y-2">
-				<BsSave size="2xl" />
-			</Card>
+			<Button
+				className="md:h-[60px] md:w-[350px] h-[55px] w-[300px] p-3  hover:shadow-xl hover:translate-y-2"
+				variant="default"
+			>
+				<div className="flex gap-2 justify-center items-center">
+					<div>
+						<BsSave size="40px" />
+					</div>
+					<div> Save as Contact</div>
+				</div>
+			</Button>
 		</a>
 	);
 };
