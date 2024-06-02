@@ -29,7 +29,7 @@ const ContactIcon = () => {
 					<a href={elem.link} target="_blank" key={index}>
 						<Card
 							key={index}
-							className="md:h-[120px] md:w-[120px] h-[100px] w-[180px] hover:translate-y-2 flex justify-center items-center shadow-xl bg-gray-200"
+							className="md:h-[120px] md:w-[120px] h-[100px] w-[180px] hover:translate-y-2 flex justify-center items-center shadow-xl bg-white"
 						>
 							<div className="flex md:block items-center">
 								<div className="flex justify-center items-center">
