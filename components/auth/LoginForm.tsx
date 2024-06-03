@@ -76,11 +76,11 @@ const LoginForm = () => {
 						</FormItem>
 					)}
 				/>
-				<Link href="/reset-link">
-					<Button size="sm" variant="link" className="px-0 mt-2">
+				<div>
+					<Link href="/reset-link" className="mt-2">
 						Forgot password?
-					</Button>
-				</Link>
+					</Link>
+				</div>
 				<div className="text-red-700">{messsage}</div>
 				{!isPending ? (
 					<Button type="submit" className="w-full">
