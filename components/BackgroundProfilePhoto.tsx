@@ -2,7 +2,7 @@
 import { UserInformationContext } from "@/hook/userInformationContext";
 import Image from "next/image";
 import { useContext, useEffect, useState } from "react";
-import noBackgroundPhoto from "@/public/logo1.png";
+import noBackgroundPhoto from "@/public/no-banner.jpg";
 const BackgroundProfilePhoto = () => {
 	const userInformation = useContext(UserInformationContext);
 	const [image, setImage] = useState("");
@@ -14,7 +14,6 @@ const BackgroundProfilePhoto = () => {
 	useEffect(() => {
 		getBackgroundPhoto();
 	}, [userInformation.backgroundPhoto]);
-	console.log(image);
 	return (
 		<div className="md:w-[70vw] ">
 			<div className="  border-[#f7f7f7] border-2 shadow-lg rounded-xl">
