@@ -27,7 +27,7 @@ const ProfileEditContainer = () => {
 							<TabsList className="flex justify-center gap-4">
 								<TabsTrigger value="account">Account</TabsTrigger>
 								<TabsTrigger value="personal">Personal</TabsTrigger>
-								<CopyLink></CopyLink>
+								<TabsTrigger value="profile">Share Profile</TabsTrigger>
 							</TabsList>
 
 							<TabsContent value="account">
@@ -35,6 +35,9 @@ const ProfileEditContainer = () => {
 							</TabsContent>
 							<TabsContent value="personal">
 								<PersonalAccountContainer></PersonalAccountContainer>
+							</TabsContent>
+							<TabsContent value="profile">
+								<CopyLink></CopyLink>
 							</TabsContent>
 						</Tabs>
 					</SheetHeader>
