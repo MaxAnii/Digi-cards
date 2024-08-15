@@ -4,8 +4,8 @@ import Image from "next/image";
 import herosection from "@/public/herosection.png";
 const HeroSection = () => {
 	return (
-		<div className="flex w-full  h-[500px] items-center justify-center hero-section">
-			<div className="flex  w-full items-center justify-center pl-5">
+		<div className="md:flex w-full  md:h-[500px] items-center justify-center hero-section pb-5">
+			<div className="flex  w-full items-center justify-center p-5 ">
 				<div className="text-center">
 					<h1 className="text-3xl font-bold lg:text-5xl text-wrap">
 						Add & Share Your Digital Profile.
@@ -22,8 +22,10 @@ const HeroSection = () => {
 					</div>
 				</div>
 			</div>
-			<div className="shadow-2xl border-2 hidden md:block   rounded-3xl mx-32 ">
-				<Image src={herosection} alt="heroselect image" width={1300} />
+			<div className="shadow-2xl border-2  rounded-3xl md:mr-5 w-full   flex justify-center mb-5">
+				<div>
+					<Image src={herosection} alt="heroselect image"></Image>
+				</div>
 			</div>
 		</div>
 	);
