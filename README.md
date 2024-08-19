@@ -11,3 +11,8 @@ On Digicard, you can share your profile with others and display all of your soci
 - **Profile Sharing**: Share your unique URL so others can contact you through your preferred methods.
 - **Edit Profile**: Update or edit your contact information and profile settings anytime.
 
+## Support
+
+By [Ansar](https://github.com/MaxAnii) with ❤️.
+
+Feel free to open an issue or use this as your project!
