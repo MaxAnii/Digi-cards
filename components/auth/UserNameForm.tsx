@@ -14,12 +14,12 @@ const UserNameForm = () => {
 	const [showLoader, setShowLoader] = useState<boolean>(false);
 	const onChange = async () => {
 		if (username.length === 0) return;
-		const usernameRegex = /^[a-z0-9_]+$/;
+		const usernameRegex = /^[A-Za-z0-9_]+$/;
 		const isValidUsername = usernameRegex.test(username);
 
 		if (!isValidUsername)
 			return setMessage(
-				"User name should not contain any captial letters, spaces and special characters"
+				"User name should not contain any spaces and special characters"
 			);
 		const usernameExists = await checkUsernameExists(username);
 		setShowLoader(false);
@@ -41,7 +41,7 @@ const UserNameForm = () => {
 			<div className="flex gap-x-3 ">
 				<Input
 					placeholder="your name"
-					onChange={(e) => setUsername(e.target.value)}
+					onChange={(e) => setUsername(e.target.value.toLowerCase())}
 					className="my-2 pr-12 shadow-lg bg-gray-100"
 					disabled={isPending}
 					onFocus={() => setShowLoader(true)}
