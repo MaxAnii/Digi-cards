@@ -3,5 +3,7 @@
 	"description": "DigiCard is a platform where you can store all your social media links in one place and share them with everyone",
 	"banner": "https://projectbanners.s3.eu-north-1.amazonaws.com/Screenshot+2024-08-18+205941.png",
 	"github": "https://github.com/MaxAnii/Digi-cards",
-	"live": "https://digicards1.vercel.app/"
+	"live": "https://digicards1.vercel.app/",
+	"projectNumber": 6,
+	"techStack": "Next JS, Shadcn , PostgreSQL, Prisma, S3, nextAuth."
 }
